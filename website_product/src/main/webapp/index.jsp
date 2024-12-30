@@ -14,8 +14,9 @@
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
 <i class="fa-solid fa-house fa-2xl"></i>
-</body>
+<img src="resources/images/20241230205000.png">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+</body>
 </html>
