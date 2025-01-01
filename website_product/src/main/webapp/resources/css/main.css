@@ -1,0 +1,18 @@
+.sidebar-icon-left {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+    margin-right: 8px;
+}
+.sidebar-text-center {
+    font-size: 13px;
+    cursor: pointer;
+}
+.sidebar-icon-right {
+    float: right;
+    padding-top: 4px;
+    font-size: 15px;
+}
+.item-submenu {
+    padding: 5px;
+}
