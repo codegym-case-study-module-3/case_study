@@ -16,3 +16,70 @@
 .item-submenu {
     padding: 5px;
 }
+.section-header .box-left {
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    align-items: center;
+    -ms-align-items: center;
+}
+.h-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    color: var(--titlecolor);
+    margin-bottom: 0;
+    white-space: initial;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
+.sh-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    padding-left: 21px;
+    margin: 0 0 0 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.section-header .sh-title:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 1px;
+    height: 85%;
+    background: #97999D;
+}
+
+.pro-name {
+    font-weight: 600;
+    margin: 0 0 15px 10px;
+    font-size: 14px;
+}
+
+.pro-img {
+    width: 250px;
+    margin: 0 30px 22px 0;
+    border-radius: 10px;
+    /*border: #ff212b solid 2px;*/
+}
+
+.body-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 12px;
+}
+
+.pro-price {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 22px;
+}
