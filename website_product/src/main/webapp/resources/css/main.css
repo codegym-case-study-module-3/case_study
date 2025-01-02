@@ -135,3 +135,18 @@
     font-weight: 600;
     color: #E30019;
 }
+
+.font-14 {
+    font-size: 14px;
+}
+.product-info {
+    padding: 0 24px;
+}
+.product-img {
+    max-width: calc(33% - 32px);
+    margin: 15px;
+}
+
+.font-18 {
+    font-size: 18px;
+}
