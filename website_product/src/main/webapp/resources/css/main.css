@@ -83,3 +83,55 @@
     font-weight: 600;
     line-height: 22px;
 }
+
+.page-title {
+    font-size: 16px !important;
+}
+
+.number-rating {
+    color: #FF8A00;
+    font-weight: 600;
+}
+.pro-rating {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.count-rating {
+    color: #6D6E72;
+    font-weight: 400;
+}
+
+.icon-rating {
+    color: #FF8A00;
+    padding: 0 2px;
+    font-size: 10px;
+}
+
+.sort-select {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.pic-frame {
+    width: 372px;
+}
+
+.pro-top .number-rating, .pro-top .count-rating {
+    font-size: 16px;
+}
+
+.pro-top .icon-rating {
+    font-size: 18px;
+    padding: 0 8px;
+}
+
+.product-price span.pro-price {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    color: #E30019;
+}
