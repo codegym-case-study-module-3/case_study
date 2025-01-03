@@ -580,7 +580,8 @@
                                       <a href="#">Laptop Lenovo V14 G4 IRU 83A000BHVN</a>
                                   </h3>
                                   <div class="pro-price">
-                                      <span class="text-danger"><fmt:formatNumber type="number" maxFractionDigits="3" value="13790000" />₫</span>
+                                      <span class="text-danger">
+                                      <fmt:formatNumber type="number" maxFractionDigits="3" value="${abc}" />₫</span>
                                   </div>
                                   <div class="pro-rating">
                                       <span class="number-rating">0.0</span>
