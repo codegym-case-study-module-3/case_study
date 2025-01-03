@@ -11,6 +11,6 @@ import java.io.IOException;
 public class DetailController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/view/user/detail.jsp").forward(req, resp);
+        req.getRequestDispatcher("/views/user/detail.jsp").forward(req, resp);
     }
 }

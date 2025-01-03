@@ -13,9 +13,9 @@
     <title>Trang chủ</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="resources/plugins/fontawesome/css/all.css">
-    <link rel="stylesheet" href="resources/css/styles.css">
-    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/plugins/fontawesome/css/all.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styles.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css">
   </head>
   <body>
   <div class="section">
@@ -310,34 +310,34 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                          <img src="resources/images/dashboard/image1.png" class="d-block w-100" alt="resources/images/dashboard/image1.png">
+                          <img src="../../resources/images/dashboard/image1.png" class="d-block w-100" alt="resources/images/dashboard/image1.png">
                         </div>
                       <div class="carousel-item">
-                          <img src="resources/images/dashboard/image2.png" class="d-block w-100" alt="resources/images/dashboard/image2.png">
+                          <img src="../../resources/images/dashboard/image2.png" class="d-block w-100" alt="resources/images/dashboard/image2.png">
                       </div>
                       <div class="carousel-item">
-                          <img src="resources/images/dashboard/image3.png" class="d-block w-100" alt="resources/images/dashboard/image3.png">
+                          <img src="../../resources/images/dashboard/image3.png" class="d-block w-100" alt="resources/images/dashboard/image3.png">
                       </div>
                       <div class="carousel-item">
-                          <img src="resources/images/dashboard/image4.png" class="d-block w-100" alt="resources/images/dashboard/image4.png">
+                          <img src="../../resources/images/dashboard/image4.png" class="d-block w-100" alt="resources/images/dashboard/image4.png">
                       </div>
                       <div class="carousel-item">
-                          <img src="resources/images/dashboard/image5.png" class="d-block w-100" alt="resources/images/dashboard/image5.png">
+                          <img src="../../resources/images/dashboard/image5.png" class="d-block w-100" alt="resources/images/dashboard/image5.png">
                       </div>
                       <div class="carousel-item">
-                          <img src="resources/images/dashboard/image6.png" class="d-block w-100" alt="resources/images/dashboard/image6.png">
+                          <img src="../../resources/images/dashboard/image6.png" class="d-block w-100" alt="resources/images/dashboard/image6.png">
                       </div>
                       <div class="carousel-item">
-                          <img src="resources/images/dashboard/image7.png" class="d-block w-100" alt="resources/images/dashboard/image7.png">
+                          <img src="../../resources/images/dashboard/image7.png" class="d-block w-100" alt="resources/images/dashboard/image7.png">
                       </div>
                       <div class="carousel-item">
-                          <img src="resources/images/dashboard/image8.png" class="d-block w-100" alt="resources/images/dashboard/image8.png">
+                          <img src="../../resources/images/dashboard/image8.png" class="d-block w-100" alt="resources/images/dashboard/image8.png">
                       </div>
                       <div class="carousel-item">
-                          <img src="resources/images/dashboard/image9.png" class="d-block w-100" alt="resources/images/dashboard/image9.png">
+                          <img src="../../resources/images/dashboard/image9.png" class="d-block w-100" alt="resources/images/dashboard/image9.png">
                       </div>
                       <div class="carousel-item">
-                          <img src="resources/images/dashboard/image10.png" class="d-block w-100" alt="resources/images/dashboard/image10.png">
+                          <img src="../../resources/images/dashboard/image10.png" class="d-block w-100" alt="resources/images/dashboard/image10.png">
                       </div>
                   </div>
                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanner" data-bs-slide="prev">
@@ -371,7 +371,7 @@
                       <div class="body-content">
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -391,7 +391,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -411,7 +411,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -431,7 +431,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -472,7 +472,7 @@
                       <div class="body-content">
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -492,7 +492,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -512,7 +512,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -532,7 +532,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -573,7 +573,7 @@
                       <div class="body-content">
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -593,7 +593,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -613,7 +613,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -633,7 +633,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -674,7 +674,7 @@
                       <div class="body-content">
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -694,7 +694,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -714,7 +714,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -734,7 +734,7 @@
                           </div>
                           <div class="col-lg-3 col-6 pb-4">
                               <div class="pro-img">
-                                  <img src="resources/images/20241230205000.png">
+                                  <img src="../../resources/images/20241230205000.png">
                               </div>
                               <div class="pro-detail">
                                   <h3 class="pro-name">
@@ -763,6 +763,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
           crossorigin="anonymous"></script>
-  <script src="resources/plugins/jquery/jquery.js" crossorigin="anonymous"></script>
+  <script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery.js" crossorigin="anonymous"></script>
   </body>
 </html>
