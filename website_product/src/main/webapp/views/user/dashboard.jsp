@@ -345,90 +345,31 @@
                     </div>
                     <div class="section-body">
                         <div class="body-content">
-                            <div class="col-lg-3 col-6 pb-4">
-                                <div class="pro-img">
-                                    <img src="../../resources/images/20241230205000.png">
-                                </div>
-                                <div class="pro-detail">
-                                    <h3 class="pro-name">
-                                        <a href="#">Laptop Lenovo V14 G4 IRU 83A000BHVN</a>
-                                    </h3>
-                                    <div class="pro-price">
-                                        <span class="text-danger"><fmt:formatNumber type="number" maxFractionDigits="3"
-                                                                                    value="13790000"/>₫</span>
+                            <c:forEach items="${home.screens}" var="screen" varStatus="temp">
+                                <a class="pe-auto" href="#">
+                                    <div class="col-lg-3 col-6 pb-4">
+                                        <div class="pro-img">
+                                            <img src="${screen.image}">
+                                        </div>
+                                        <div class="pro-detail">
+                                            <h3 class="pro-name">
+                                                <a href="#">${screen.name}</a>
+                                            </h3>
+                                            <div class="pro-price">
+                                                <span class="text-danger"><fmt:formatNumber type="number" maxFractionDigits="3"
+                                                                                            value="${screen.price}"/>₫</span>
+                                            </div>
+                                            <div class="pro-rating">
+                                                <span class="number-rating">0.0</span>
+                                                <span class="icon-rating">
+                                                                <i class="fa-solid fa-star"></i>
+                                                            </span>
+                                                <span class="count-rating">(0 đánh giá)</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="pro-rating">
-                                        <span class="number-rating">0.0</span>
-                                        <span class="icon-rating">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </span>
-                                        <span class="count-rating">(0 đánh giá)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6 pb-4">
-                                <div class="pro-img">
-                                    <img src="../../resources/images/20241230205000.png">
-                                </div>
-                                <div class="pro-detail">
-                                    <h3 class="pro-name">
-                                        <a href="#">Laptop Lenovo V14 G4 IRU 83A000BHVN</a>
-                                    </h3>
-                                    <div class="pro-price">
-                                        <span class="text-danger"><fmt:formatNumber type="number" maxFractionDigits="3"
-                                                                                    value="13790000"/>₫</span>
-                                    </div>
-                                    <div class="pro-rating">
-                                        <span class="number-rating">0.0</span>
-                                        <span class="icon-rating">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </span>
-                                        <span class="count-rating">(0 đánh giá)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6 pb-4">
-                                <div class="pro-img">
-                                    <img src="../../resources/images/20241230205000.png">
-                                </div>
-                                <div class="pro-detail">
-                                    <h3 class="pro-name">
-                                        <a href="#">Laptop Lenovo V14 G4 IRU 83A000BHVN</a>
-                                    </h3>
-                                    <div class="pro-price">
-                                        <span class="text-danger"><fmt:formatNumber type="number" maxFractionDigits="3"
-                                                                                    value="13790000"/>₫</span>
-                                    </div>
-                                    <div class="pro-rating">
-                                        <span class="number-rating">0.0</span>
-                                        <span class="icon-rating">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </span>
-                                        <span class="count-rating">(0 đánh giá)</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6 pb-4">
-                                <div class="pro-img">
-                                    <img src="../../resources/images/20241230205000.png">
-                                </div>
-                                <div class="pro-detail">
-                                    <h3 class="pro-name">
-                                        <a href="#">Laptop Lenovo V14 G4 IRU 83A000BHVN</a>
-                                    </h3>
-                                    <div class="pro-price">
-                                        <span class="text-danger"><fmt:formatNumber type="number" maxFractionDigits="3"
-                                                                                    value="13790000"/>₫</span>
-                                    </div>
-                                    <div class="pro-rating">
-                                        <span class="number-rating">0.0</span>
-                                        <span class="icon-rating">
-                                                        <i class="fa-solid fa-star"></i>
-                                                    </span>
-                                        <span class="count-rating">(0 đánh giá)</span>
-                                    </div>
-                                </div>
-                            </div>
+                                </a>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>

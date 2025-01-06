@@ -40,4 +40,9 @@ public class HomeBean {
         List<Product> products = HomeBean.getProducts(MouseID);
         return products;
     }
+
+    public List<Product> getScreens() {
+        List<Product> products = HomeBean.getProducts(SceenID);
+        return products;
+    }
 }
