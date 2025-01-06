@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepository {
-
         private static List<Product> products = new ArrayList<>();
 
         public List<Product> getAll() {
@@ -21,9 +20,9 @@ public class ProductRepository {
                 while (resultSet.next()) {
                     int id = resultSet.getInt("id");
                     String name = resultSet.getString("name");
-                    int description = resultSet.getInt("description");
+                    String description = resultSet.getString("description");
                     int price = resultSet.getInt("price");
-                    int stock = resultSet.getInt("stock");
+                    double stock = resultSet.getDouble("stock");
                     String image = resultSet.getString("image");
                     String category_id = resultSet.getString("category_id");
                     String created_at = resultSet.getString("created_at");
@@ -40,11 +39,11 @@ public class ProductRepository {
             try {
                 PreparedStatement statement=BaseRepository.getConnection().prepareStatement("insert into  products(id,name,description,price,stock,image,category_id,created_at)values (?,?,?,?,?,?,?,?)");
                 statement.setString(1, p.getName());
-                statement.setInt(2, p.getDescription());
-                statement.setInt(3, p.getPrice());
-                statement.setInt(4, p.getStock());
+                statement.setString(2, p.getDescription());
+                statement.setDouble(3, p.getPrice());
+                statement.setInt(4, p.getQuantity());
                 statement.setString(5, p.getImage());
-                statement.setString(6, p.getCategory_id());
+                statement.setInt(6, p.getCategoryId());
 
 
 
@@ -60,11 +59,11 @@ public class ProductRepository {
                  PreparedStatement statement = connection.prepareStatement(query)) {
 
                 statement.setString(1, p.getName());
-                statement.setInt(2, p.getDescription());
-                statement.setInt(3, p.getPrice());
-                statement.setInt(4, p.getStock());
+                statement.setString(2, p.getDescription());
+                statement.setDouble(3, p.getPrice());
+                statement.setInt(4, p.getQuantity());
                 statement.setString(5, p.getImage());
-                statement.setString(6, p.getCategory_id());
+                statement.setInt(6, p.getCategoryId());
 
                 statement.setInt(8, id);
 
@@ -84,4 +83,49 @@ public class ProductRepository {
                 throw new RuntimeException(e);
             }
         }
+    private static String selectAll = "select * from products";
+//    public List<Product> getAll() {
+//        List<Product> products = new ArrayList<Product>();
+//        try {
+//            PreparedStatement statement = BaseRepository.getConnection().prepareStatement(selectAll);
+//            ResultSet resultSet = statement.executeQuery();
+//            while (resultSet.next()) {
+//                int id = resultSet.getInt("id");
+//                String name = resultSet.getString("name");
+//                String description = resultSet.getString("description");
+//                double price = resultSet.getDouble("price");
+//                int stock = resultSet.getInt("stock");
+//                String image = resultSet.getString("image");
+//                int category_id = resultSet.getInt("category_id");
+//                String created_at  = resultSet.getString("created_at");
+//                products.add(new Product(id, name, description, price, stock, image, category_id, created_at));
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return products;
+//    }
+
+    public List<Product> getAllByCategory(int category_id) {
+        List<Product> products = new ArrayList<Product>();
+        try {
+            PreparedStatement statement = BaseRepository.getConnection().prepareStatement(selectAll + " where category_id = ? order by created_at desc");
+            statement.setInt(1, category_id);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String description = resultSet.getString("description");
+                double price = resultSet.getDouble("price");
+                int stock = resultSet.getInt("stock");
+                String image = resultSet.getString("image");
+                int categoryId = resultSet.getInt("category_id");
+                String created_at  = resultSet.getString("created_at");
+                products.add(new Product(id, name, description, price, stock, image, categoryId, created_at));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return products;
+    }
 }

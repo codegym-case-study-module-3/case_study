@@ -67,11 +67,11 @@ public class ProductController extends HttpServlet  {
         switch (action) {
             case "create":
                 String name = req.getParameter("name");
-                int description = Integer.parseInt(req.getParameter("description"));
+                String description = req.getParameter("description");
                 int price = Integer.parseInt(req.getParameter("price"));
                 int stock = Integer.parseInt(req.getParameter("stock"));
                 String image = req.getParameter("image");
-                String category_id = req.getParameter("category_id");
+                int category_id = Integer.parseInt(req.getParameter("category_id"));
                 String created_at = req.getParameter("created_at");
                 Product product = new Product(name,description,price,stock,image,category_id,created_at);
                 productService.save(product);
@@ -81,11 +81,11 @@ public class ProductController extends HttpServlet  {
             case "update":
                 int id = Integer.parseInt(req.getParameter("id"));
                 String name_u = req.getParameter("name");
-                int description_u = Integer.parseInt(req.getParameter("description"));
+                String description_u = req.getParameter("description");
                 int price_u = Integer.parseInt(req.getParameter("price"));
                 int stock_u = Integer.parseInt(req.getParameter("stock"));
                 String image_u = req.getParameter("image");
-                String category_id_u = req.getParameter("category_id");
+                int category_id_u = Integer.parseInt(req.getParameter("category_id"));
                 String created_at_u = req.getParameter("created_at");
                 Product productUpdate = new Product(id,name_u, description_u,price_u,stock_u,image_u,category_id_u,created_at_u);
                 productService.update(id,productUpdate);

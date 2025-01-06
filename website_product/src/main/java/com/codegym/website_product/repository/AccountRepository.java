@@ -1,6 +1,5 @@
 package com.codegym.website_product.repository;
 
-import com.codegym.website_product.DTO.AccountDTO;
 import com.codegym.website_product.entity.Account;
 
 import java.security.MessageDigest;
@@ -30,25 +29,6 @@ public class AccountRepository {
             throw new RuntimeException(e);
         }
         return accounts;
-    }
-
-    public static List<AccountDTO> getAllDTO(){
-        List<AccountDTO> accountDTO = new ArrayList<>();
-        try {
-            PreparedStatement statement = BaseRepository.getConnection().prepareStatement("select * from account join users on account.id = users.id");
-            ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()) {
-                long id = resultSet.getInt("id");
-                String userName = resultSet.getString("full_name");
-                String email = resultSet.getString("email");
-                String password = resultSet.getString("password");
-                String role = resultSet.getString("role");
-                accountDTO.add(new AccountDTO(id, userName, email, password, role));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return accountDTO;
     }
 
     public void save(Account account) {

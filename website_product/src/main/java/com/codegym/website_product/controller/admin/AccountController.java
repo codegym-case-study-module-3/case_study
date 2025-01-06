@@ -1,6 +1,5 @@
-package com.codegym.website_product.controller;
+package com.codegym.website_product.controller.admin;
 
-import com.codegym.website_product.DTO.AccountDTO;
 import com.codegym.website_product.entity.Account;
 import com.codegym.website_product.service.account.AccountService;
 import com.codegym.website_product.utils.SessionManager;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "admin", urlPatterns = "/admin")
 public class AccountController extends HttpServlet {
