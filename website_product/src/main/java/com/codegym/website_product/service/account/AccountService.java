@@ -1,6 +1,5 @@
 package com.codegym.website_product.service.account;
 
-import com.codegym.website_product.DTO.AccountDTO;
 import com.codegym.website_product.entity.Account;
 import com.codegym.website_product.repository.AccountRepository;
 import com.codegym.website_product.service.impl.IAccount;
@@ -37,11 +36,6 @@ public class AccountService implements IAccount {
     @Override
     public Account findByEmail(String email) {
         return accountRepository.findAccountByemail(email);
-    }
-
-    @Override
-    public List<AccountDTO> getAllDTO() {
-        return accountRepository.getAllDTO();
     }
 
     @Override
