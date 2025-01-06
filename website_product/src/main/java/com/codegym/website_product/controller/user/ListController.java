@@ -1,7 +1,9 @@
 package com.codegym.website_product.controller.user;
 
+import com.codegym.website_product.entity.Category;
 import com.codegym.website_product.entity.Product;
-import com.codegym.website_product.service.ProductService;
+import com.codegym.website_product.service.impl.CategoryService;
+import com.codegym.website_product.service.impl.ProductService;
 import com.codegym.website_product.utils.GetUrlAction;
 
 import javax.servlet.ServletException;
@@ -17,6 +19,8 @@ import static com.codegym.website_product.utils.CheckNum.isValidInteger;
 @WebServlet(name = "listController", urlPatterns = "/list/*")
 public class ListController extends HttpServlet {
     private static ProductService productService = new ProductService();
+    private static CategoryService categoryService = new CategoryService();
+    private static int PAGE_LIMIT = 8;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,12 +30,27 @@ public class ListController extends HttpServlet {
         String uri = req.getRequestURI();
         String contextPath = req.getContextPath();
         String string_id = GetUrlAction.getId(uri, contextPath);
-        int id = 0;
+        int category_id = 0;
+        List<Product> products;
+        String breadCrumb = "Tất cả sản phẩm";
         if (isValidInteger(string_id)) {
-            id = Integer.parseInt(string_id);
+            category_id = Integer.parseInt(string_id);
+            Category category = categoryService.findById(category_id);
+            if (category != null) {
+                breadCrumb = category.getName();
+            }
+            products = productService.getAllByCategory(category_id);
+        } else {
+            String search = req.getParameter("search");
+            if (search == null) {
+                products = productService.getAll();
+            } else {
+                breadCrumb = "Kết quả tìm kiếm";
+                products = productService.findByName(search);
+            }
         }
-        String action = "";
-        List<Product> products = productService.getAllByCategory(id);
+        req.setAttribute("products", products);
+        req.setAttribute("breadCrumb", breadCrumb);
         req.getRequestDispatcher("/views/user/list.jsp").forward(req, resp);
     }
 }

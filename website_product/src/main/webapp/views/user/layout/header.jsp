@@ -5,7 +5,7 @@
             <div class="row-header">
                 <div class="coll-header main-header--left header-action">
                     <div class="main-header--logo" itemscope="" itemtype="http://schema.org/Organization">
-                        <a href="#" itemprop="url">
+                        <a href="/" itemprop="url">
                             <picture>
                                 <source media="(max-width: 1023px)"
                                         srcset="https://file.hstatic.net/200000636033/file/logo-mobile_1e5b7fc485b24cf985b3d63cfa1f88be.svg">
@@ -23,12 +23,17 @@
                     <div class="header-action-item main-header--search">
                         <div class="header-action_dropdown_mb search-box wpo-wrapper-search">
                             <form action="/search"
+                                  method="post"
                                   class="searchform-product searchform-categoris ultimate-search"
                                   id="searchform-product">
+                                <%
+                                    String search = (String) session.getAttribute("search");
+                                %>
                                 <div class="wpo-search-inner">
                                     <input type="hidden" name="type" value="product">
                                     <input required="" id="inputSearchAuto" class="input-search" name="q"
                                            maxlength="40" autocomplete="off" type="text" size="20"
+                                           value="<%= search==null?"":search %>"
                                            placeholder="Bạn cần tìm gì?">
                                 </div>
                                 <button type="submit" class="btn-search btn" id="btn-search">
