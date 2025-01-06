@@ -15,4 +15,8 @@ public class ProductService {
     public List<Product> getAllByCategory(int categoryId) {
         return productRepository.getAllByCategory(categoryId);
     }
+
+    public List<Product> getFourByCategory(int categoryId) {
+        return productRepository.getAllByCategory(categoryId);
+    }
 }

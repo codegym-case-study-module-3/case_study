@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepository {
-    private static String selectAll = "select * from product";
+    private static String selectAll = "select * from products";
     public List<Product> getAll() {
         List<Product> products = new ArrayList<Product>();
         try {
@@ -35,7 +35,7 @@ public class ProductRepository {
     public List<Product> getAllByCategory(int category_id) {
         List<Product> products = new ArrayList<Product>();
         try {
-            PreparedStatement statement = BaseRepository.getConnection().prepareStatement(selectAll + " where category_id = ?");
+            PreparedStatement statement = BaseRepository.getConnection().prepareStatement(selectAll + " where category_id = ? order by created_at desc");
             statement.setInt(1, category_id);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
