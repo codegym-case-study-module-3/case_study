@@ -3,8 +3,6 @@ package com.codegym.website_product.controller.admin;
 
 import com.codegym.website_product.service.admin.account.AccountService;
 import com.codegym.website_product.utils.GetUrlAction;
-import com.codegym.website_product.entity.Account;
-import com.codegym.website_product.service.impl.AccountService;
 import com.codegym.website_product.utils.SessionManager;
 
 import javax.servlet.ServletException;
@@ -18,7 +16,6 @@ import java.io.IOException;
 public class AccountController extends HttpServlet {
     private final AccountService accountService = new AccountService();
     private final SessionManager sessionManager = new SessionManager();
-    private static ProductService productService = new ProductService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
