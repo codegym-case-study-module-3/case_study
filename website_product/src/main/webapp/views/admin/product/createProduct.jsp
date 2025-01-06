@@ -1,11 +1,12 @@
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Quản Lý Product</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <style>
         #previewImage {
             max-width: 100%;
@@ -14,6 +15,7 @@
             padding: 5px;
             border-radius: 8px;
         }
+
         .info input {
             width: 40%; /* Chia đều 40% cho mỗi ô */
         }
@@ -28,81 +30,15 @@
             margin-bottom: 8px; /* Khoảng cách giữa các dòng */
         }
     </style>
-    <link href="../../../resources/css/admin/styles.css" rel="stylesheet" />
+    <link href="../../../resources/css/admin/styles.css" rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="sb-nav-fixed">
-<!-- <jsp:include page="../layout/header.jsp" /> -->
+<jsp:include page="../layout/header.jsp"/>
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="../dashboard/dashboard.html">GEAR.VN</a>
-    <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
-        <i class="fas fa-bars"></i>
-    </button>
-    <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-        <span style="color: white;">Welcome, USERNAME </span>
-        <!-- <div class="input-group">
-  <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
-  aria-describedby="btnNavbarSearch" />
-  <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
-    class="fas fa-search"></i></button>
-  </div> -->
-    </form>
-    <!-- Navbar-->
-    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-               data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Settings</a></li>
-
-                <li>
-                    <hr class="dropdown-divider" />
-                </li>
-                <li><a class="dropdown-item" href="?action=login">Logout</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
 <div id="layoutSidenav">
-    <!-- <jsp:include page="../layout/sidebar.jsp" /> -->
-
-    <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-            <div class="sb-sidenav-menu">
-                <div class="nav">
-                    <div class="sb-sidenav-menu-heading">Features</div>
-                    <a class="nav-link" href="../dashboard/dashboard.html">
-                        <div class="sb-nav-link-icon"><i class="fa-solid fa-house-laptop"></i></div>
-                        TRANG CHỦ
-                    </a>
-
-                    <a class="nav-link" href="../account/account.html">
-                        <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
-                        QUẢN LÝ ACCOUNT
-                    </a>
-
-                    <a class="nav-link" href="../user/show.html">
-                        <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
-                        QUẢN LÝ USERS
-                    </a>
-
-                    <a class="nav-link" href="product.html">
-                        <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>
-                        QUẢN LÝ PRODUCT
-                    </a>
-                    <a class="nav-link" href="../orders/orders.html">
-                        <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>
-                        DANH SÁCH HÓA ĐƠN
-                    </a>
-                </div>
-            </div>
-        </nav>
-    </div>
+    <jsp:include page="../layout/sidebar.jsp"/>
 
     <div id="layoutSidenav_content">
         <main>
@@ -120,7 +56,7 @@
             <div class="container-fluid px-4">
                 <h1 class="mt-4">QUẢN LÝ PRODUCT</h1>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="../dashboard/dashboard.html">TRANG CHỦ</a></li>
+                    <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin">TRANG CHỦ</a></li>
                     <li class="breadcrumb-item active">PRODUCT</li>
                 </ol>
                 <div class="container">
@@ -143,7 +79,8 @@
                             <input type="file" class="form-control" id="image" name="image" accept="image/*">
                             <!-- Khu vực hiển thị ảnh sau khi chọn -->
                             <div class="mt-2">
-                                <img id="previewImage" src="#" alt="Image Preview" style="max-width: 200px; display: none;">
+                                <img id="previewImage" src="#" alt="Image Preview"
+                                     style="max-width: 200px; display: none;">
                             </div>
                         </div>
                         <div class="mb-3">
@@ -166,7 +103,8 @@
                                 <label class="col-sm-2 col-6 form-label">Thông số kỹ thuật</label>
 
                                 <div class="col-sm-4 col-6">
-                                    <button id="btn-add-info" type="button" class="btn btn-primary">Thêm thông tin</button>
+                                    <button id="btn-add-info" type="button" class="btn btn-primary">Thêm thông tin
+                                    </button>
                                 </div>
                             </div>
 
@@ -174,7 +112,7 @@
                                 <div class="col-12">
                                     <div class="row align-items-center mb-sm-2 mb-4" id="info-1">
                                         <div class="col-sm-5 col-12 mb-2 mb-sm-0">
-                                            <input type="text" class="form-control" name="name_info[]"  />
+                                            <input type="text" class="form-control" name="name_info[]"/>
                                         </div>
                                         <div class="col-sm-6 col-12">
                                             <textarea class="form-control" name="text_info[]"></textarea>
@@ -190,7 +128,8 @@
 
                     </form>
                     <div class="col-12 text-center">
-                        <button type="button" class="btn btn-primary" id="submit-btn" style="width: 210px;">Thêm mới</button>
+                        <button type="button" class="btn btn-primary" id="submit-btn" style="width: 210px;">Thêm mới
+                        </button>
                     </div>
 
                 </div>
@@ -201,20 +140,13 @@
             <!-- Toast thông báo thành công -->
 
         </main>
-        <!-- <jsp:include page="../layout/footer.jsp" /> -->
-
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; CODEGYM.VN</div>
-                </div>
-            </div>
-        </footer>
-
+        <jsp:include page="../layout/footer.jsp"/>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 <script src="../../../resources/js/scripts.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
         crossorigin="anonymous"></script>
@@ -298,9 +230,9 @@
         const toast = new bootstrap.Toast(document.getElementById("successToast")); // Lấy toast theo ID
         toast.show();
 
-        // Sau 2 giây, chuyển hướng về trang product.html
+        // Sau 2 giây, chuyển hướng về trang product.jsp
         setTimeout(function () {
-            window.location.href = "product.html";
+            window.location.href = "product.jsp";
         }, 2000);
     });
 </script>

@@ -1,4 +1,4 @@
-package com.codegym.website_product.service.account;
+package com.codegym.website_product.service.admin.account;
 
 import com.codegym.website_product.entity.Account;
 import com.codegym.website_product.repository.AccountRepository;
@@ -8,6 +8,7 @@ import java.util.List;
 
 public class AccountService implements IAccount {
     private final AccountRepository accountRepository = new AccountRepository();
+
     @Override
     public List<Account> getAll() {
         return accountRepository.getAll();

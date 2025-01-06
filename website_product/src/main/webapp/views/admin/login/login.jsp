@@ -1,4 +1,5 @@
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +55,7 @@
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
     <div class="login-container col-md-4">
         <h2>Đăng Nhập</h2>
-        <form method="post" action="/admin?action=login">
+        <form method="post" action="${pageContext.request.contextPath}/admin/login">
             <div class="mb-3">
                 <label for="email" class="form-label">Email đăng nhập:</label>
                 <input type="text" class="form-control" id="email" name="email" required>
