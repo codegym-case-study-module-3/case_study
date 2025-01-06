@@ -1,10 +1,9 @@
-package com.codegym.website_product.controller.product;
+package com.codegym.website_product.controller.admin;
 
 
 import com.codegym.website_product.entity.Product;
-import com.codegym.website_product.service.impl.IProduct;
-import com.codegym.website_product.service.product.ProductService;
-import com.mysql.cj.jdbc.CallableStatement;
+import com.codegym.website_product.service.IProduct;
+import com.codegym.website_product.service.impl.ProductService;
 
 
 import javax.servlet.ServletException;
@@ -14,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-
-import static jdk.internal.org.jline.utils.Colors.s;
 
 @WebServlet(name = "productController", urlPatterns = "/product")
 public class ProductController extends HttpServlet  {

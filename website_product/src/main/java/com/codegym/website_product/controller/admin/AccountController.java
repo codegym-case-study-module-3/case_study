@@ -1,7 +1,7 @@
 package com.codegym.website_product.controller.admin;
 
 import com.codegym.website_product.entity.Account;
-import com.codegym.website_product.service.account.AccountService;
+import com.codegym.website_product.service.impl.AccountService;
 import com.codegym.website_product.utils.SessionManager;
 
 import javax.servlet.ServletException;

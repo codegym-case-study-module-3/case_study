@@ -1,8 +1,8 @@
-package com.codegym.website_product.service.account;
+package com.codegym.website_product.service.impl;
 
 import com.codegym.website_product.entity.Account;
 import com.codegym.website_product.repository.AccountRepository;
-import com.codegym.website_product.service.impl.IAccount;
+import com.codegym.website_product.service.IAccount;
 
 import java.util.List;
 

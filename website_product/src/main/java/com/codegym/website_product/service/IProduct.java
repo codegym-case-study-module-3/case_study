@@ -1,7 +1,6 @@
-package com.codegym.website_product.service.impl;
+package com.codegym.website_product.service;
 
 import com.codegym.website_product.entity.Product;
-import com.codegym.website_product.service.IService;
 
 import java.util.List;
 

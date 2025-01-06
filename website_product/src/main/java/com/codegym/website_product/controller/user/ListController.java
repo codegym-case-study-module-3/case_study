@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+import static com.codegym.website_product.utils.CheckNum.isValidInteger;
+
 @WebServlet(name = "listController", urlPatterns = "/list/*")
 public class ListController extends HttpServlet {
     private static ProductService productService = new ProductService();
@@ -23,8 +25,13 @@ public class ListController extends HttpServlet {
         // Lấy URI và context path
         String uri = req.getRequestURI();
         String contextPath = req.getContextPath();
-        String action = GetUrlAction.getUrl(uri, contextPath);
-        List<Product> products = productService.getAll();
+        String string_id = GetUrlAction.getId(uri, contextPath);
+        int id = 0;
+        if (isValidInteger(string_id)) {
+            id = Integer.parseInt(string_id);
+        }
+        String action = "";
+        List<Product> products = productService.getAllByCategory(id);
         req.getRequestDispatcher("/views/user/list.jsp").forward(req, resp);
     }
 }
