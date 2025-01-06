@@ -16,94 +16,6 @@
   <body>
   <div class="section">
     <jsp:include page="layout/header.jsp" />
-    <div class="sub-header">
-      <div class="container-fluid">
-        <div class="d-lg-none d-xl-none">
-          <ul class="list-submenu list-submenu--mobile">
-            <li class="item-submenu sm-1">
-              <a href="#">
-                <span class="text">Laptop</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-2">
-              <a href="#">
-                <span class="text">Laptop Gaming</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-3">
-              <a href="#">
-                <span class="text">PC GVN</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-4">
-              <a href="#">
-                <span class="text">Main, CPU, VGA</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-5">
-              <a href="#">
-                <span class="text">Case, Nguồn, Tản</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-6">
-              <a href="#">
-                <span class="text">Ổ cứng, RAM, Thẻ nhớ</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-7">
-              <a href="#">
-                <span class="text">Loa, Micro, Webcam</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-8">
-              <a href="#">
-                <span class="text">Màn hình</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-9">
-              <a href="#">
-                <span class="text">Bàn phím</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-10">
-              <a href="#">
-                <span class="text">Chuột + Lót chuột</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-11">
-              <a href="#">
-                <span class="text">Tai Nghe</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-12">
-              <a href="#">
-                <span class="text">Ghế - Bàn</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-13">
-              <a href="#">
-                <span class="text">Phần mềm, mạng</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-14">
-              <a href="#">
-                <span class="text">Handheld, Console</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-15">
-              <a href="#">
-                <span class="text">Phụ kiện (Hub, sạc, cáp..)</span>
-              </a>
-            </li>
-            <li class="item-submenu sm-16">
-              <a href="#">
-                <span class="text">Dịch vụ và thông tin khác</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
     <div class="container">
       <div class="container-fluid">
           <div class="col-12 py-2">
@@ -756,6 +668,8 @@
       </div>
     </div>
     <jsp:include page="layout/footer.jsp" />
+    <jsp:include page="modal/modal_login.jsp" />
+    <jsp:include page="modal/modal_register.jsp" />
   </div>
   <jsp:include page="layout/script.jsp" />
   </body>
