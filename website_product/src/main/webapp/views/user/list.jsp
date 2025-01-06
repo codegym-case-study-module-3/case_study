@@ -23,7 +23,7 @@
                         <div class="row pt-3 pb-4">
                             <div class="col-sm-6">
                                 <h5 class="page-title m-0">
-                                    <a class="text-primary" href="/dashboard"><i class="fa-solid fa-house"></i>Trang chủ</a>
+                                    <a class="text-primary" href="/"><i class="fa-solid fa-house"></i>Trang chủ</a>
                                     <span class="px-3">/</span>
                                     <span>Laptop</span>
                                 </h5>
@@ -42,7 +42,7 @@
                                                 <label class="col-sm-2 col-lg-1 col-form-label">Sắp xếp theo</label>
                                                 <div class="col-sm-3 col-lg-2">
                                                     <select class="form-select" aria-label="Default select example">
-                                                        <option value="0">Nổi bật</option>
+<%--                                                        <option value="0">Nổi bật</option>--%>
                                                         <option value="1">Tên từ A - Z</option>
                                                         <option value="2">Tên từ Z - A</option>
                                                         <option value="3">Giá tăng dần</option>
@@ -321,6 +321,8 @@
             </div>
         </div>
         <jsp:include page="layout/footer.jsp" />
+        <jsp:include page="modal/modal_login.jsp" />
+        <jsp:include page="modal/modal_register.jsp" />
     </div>
     <jsp:include page="layout/script.jsp" />
 </body>
