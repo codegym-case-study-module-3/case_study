@@ -249,7 +249,7 @@
         <div class="d-lg-none d-xl-none">
             <ul class="list-submenu list-submenu--mobile">
                 <li class="item-submenu sm-1">
-                    <a href="#">
+                    <a href="${pageContext.request.contextPath}/list/1">
                         <span class="text">Laptop</span>
                     </a>
                 </li>
@@ -284,17 +284,17 @@
                     </a>
                 </li>
                 <li class="item-submenu sm-8">
-                    <a href="#">
+                    <a href="${pageContext.request.contextPath}/list/6">
                         <span class="text">Màn hình</span>
                     </a>
                 </li>
                 <li class="item-submenu sm-9">
-                    <a href="#">
+                    <a href="${pageContext.request.contextPath}/list/3">
                         <span class="text">Bàn phím</span>
                     </a>
                 </li>
                 <li class="item-submenu sm-10">
-                    <a href="#">
+                    <a href="${pageContext.request.contextPath}/list/5">
                         <span class="text">Chuột + Lót chuột</span>
                     </a>
                 </li>

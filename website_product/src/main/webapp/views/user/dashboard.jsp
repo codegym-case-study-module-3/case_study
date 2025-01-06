@@ -25,7 +25,7 @@
                         <div>
                             <ul>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="${pageContext.request.contextPath}/list/1">
                         <span class="sidebar-icon-left">
                           <i class="fa-solid fa-laptop"></i>
                         </span>
@@ -102,7 +102,7 @@
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="${pageContext.request.contextPath}/list/6">
                         <span class="sidebar-icon-left">
                           <i class="fa-solid fa-tv"></i>
                         </span>
@@ -113,7 +113,7 @@
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="${pageContext.request.contextPath}/list/3">
                         <span class="sidebar-icon-left">
                           <i class="fa-regular fa-keyboard"></i>
                         </span>
@@ -124,7 +124,7 @@
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="${pageContext.request.contextPath}/list/5">
                         <span class="sidebar-icon-left">
                           <i class="fa-solid fa-computer-mouse"></i>
                         </span>
