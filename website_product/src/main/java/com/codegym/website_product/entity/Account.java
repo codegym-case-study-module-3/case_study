@@ -1,43 +1,26 @@
 package com.codegym.website_product.entity;
 
+import java.util.Objects;
+
 public class Account {
-    private long id;
-    private long user_id;
+    private int id;
     private String email;
     private String password;
     private String role;
 
-    public Account(long id, long user_id, String email, String password, String role) {
+    public Account(int id, String email, String password, String role) {
         this.id = id;
-        this.user_id = user_id;
         this.email = email;
         this.password = password;
         this.role = role;
     }
 
-    public Account(long user_id, String email, String password, String role) {
-        this.user_id = user_id;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
-
-
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
-    }
-
-    public long getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
     }
 
     public String getEmail() {
@@ -62,5 +45,18 @@ public class Account {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return id == account.id && Objects.equals(email, account.email) && Objects.equals(password, account.password) && Objects.equals(role, account.role);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, email, password, role);
     }
 }

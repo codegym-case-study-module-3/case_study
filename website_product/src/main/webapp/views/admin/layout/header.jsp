@@ -1,7 +1,8 @@
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="/admin">GEAR.VN</a>
+    <a class="navbar-brand ps-3" href="${pageContext.request.contextPath}/admin">GEAR.VN</a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
         <i class="fas fa-bars"></i>
@@ -25,9 +26,9 @@ aria-describedby="btnNavbarSearch" />
                 <li><a class="dropdown-item" href="#!">Settings</a></li>
 
                 <li>
-                    <hr class="dropdown-divider" />
+                    <hr class="dropdown-divider"/>
                 </li>
-                <li><a class="dropdown-item" href="?action=login">Logout</a></li>
+                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/login">Logout</a></li>
             </ul>
         </li>
     </ul>
