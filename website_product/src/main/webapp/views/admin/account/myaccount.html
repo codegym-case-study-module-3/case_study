@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="GEAR.VN" />
+    <meta name="author" content="GEAR.VN" />
+    <title>Dashboard ACCOUNT</title>
+    <link href="../../../resources/css/admin/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed">
+<!-- <jsp:include page="../layout/header.jsp" /> -->
+ 
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="/admin">GEAR.VN</a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
+        <i class="fas fa-bars"></i>
+    </button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <span style="color: white;">Welcome, USERNAME </span>
+        <!-- <div class="input-group">
+<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+aria-describedby="btnNavbarSearch" />
+<button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+    class="fas fa-search"></i></button>
+</div> -->
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#!">Settings</a></li>
+
+                <li>
+                    <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="../login/login.html">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+<div id="layoutSidenav">
+    <!-- <jsp:include page="../layout/sidebar.jsp" /> -->
+     
+<div id="layoutSidenav_nav">
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+      <div class="sb-sidenav-menu">
+        <div class="nav">
+          <div class="sb-sidenav-menu-heading">Features</div>
+          <a class="nav-link" href="../dashboard/dashboard.html">
+            <div class="sb-nav-link-icon"><i class="fa-solid fa-house-laptop"></i></div>
+            TRANG CHỦ
+          </a>
+          <a class="nav-link" href="../account/myaccount.html">
+            <div class="sb-nav-link-icon"><i class="fa-solid fa-gears"></i></div>
+            MY ACCOUNT
+          </a>
+          <a class="nav-link" href="account.html">
+            <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
+            QUẢN LÝ ACCOUNT
+          </a>
+  
+          <a class="nav-link" href="../user/show.html">
+            <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
+            QUẢN LÝ USERS
+          </a>
+  
+          <a class="nav-link" href="../product/product.html">
+            <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>
+            QUẢN LÝ PRODUCT
+          </a>
+          <a class="nav-link" href="../orders/orders.html">
+            <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>
+            DANH SÁCH HÓA ĐƠN
+          </a>
+  
+        </div>
+      </div>
+    </nav>
+  </div>
+  
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">MY ACCOUNT</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="../dashboard/dashboard.html">TRANG CHỦ</a></li>
+                    <li class="breadcrumb-item active">MY ACCOUNT</li>
+                </ol>
+
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-update">Cập nhật Account</button>
+            <hr/>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">THÔNG TIN CHI TIẾT ACCOUNT:</h1>
+                  </div>
+                  <div class="modal-body">
+                      <ul class="list-group">
+                          <li class="list-group-item">ID: 24336002207</li>
+                          <li class="list-group-item">Email: abc@gmail.com</li>
+                          <li class="list-group-item">Username: codegymvn</li>
+                          <li class="list-group-item">Role:</li>
+                        </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modal update-->
+            <div class="modal fade" id="modal-update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Cập nhật thông tin:</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input  type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mật khẩu cũ</label>
+                            <input  type="password" class="form-control" id="password-old" name="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mật khẩu mới</label>
+                            <input  type="password" class="form-control" id="password-new" name="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Xác nhận mật khẩu</label>
+                            <input  type="password" class="form-control" id="password-new" name="password" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary">Tạo mới</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
+        </main>
+        <!-- <jsp:include page="../layout/footer.jsp" /> -->
+         
+    <footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid px-4">
+      <div class="d-flex align-items-center justify-content-between small">
+        <div class="text-muted">Copyright &copy; CODEGYM.VN</div>
+      </div>
+    </div>
+  </footer>
+  
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybF6kV5O6Nf1XbFjwRz2Kl68uGxAtGvX7SeCmbkNQvd53u1T2" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+crossorigin="anonymous"></script>
+<script src="../../../resources/js/scripts.js"></script>
+<script src="../../../resources/js/datatables-simple-demo.js"></script>
+
+</body>
+
+</html>
