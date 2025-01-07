@@ -366,7 +366,7 @@
                         <div class="body-content">
                             <c:forEach items="${home.laptops}" var="laptop" varStatus="temp">
                             <div class="col-lg-3 col-6 pb-4">
-                                <a href="#" class="pe-auto">
+                                <a href="${pageContext.request.contextPath}/product/${laptop.id}" class="pe-auto">
                                     <div class="pro-img">
                                         <img src="${laptop.image}">
                                     </div>
@@ -410,7 +410,7 @@
                     <div class="section-body">
                         <div class="body-content">
                             <c:forEach items="${home.screens}" var="screen" varStatus="temp">
-                                <a class="pe-auto" href="#">
+                                <a class="pe-auto" href="${pageContext.request.contextPath}/product/${screen.id}">
                                     <div class="col-lg-3 col-6 pb-4">
                                         <div class="pro-img">
                                             <img src="${screen.image}">
@@ -456,7 +456,7 @@
                     <div class="section-body">
                         <div class="body-content">
                             <c:forEach items="${home.mouses}" var="mouse" varStatus="temp">
-                                <a class="pe-auto" href="#">
+                                <a class="pe-auto" href="${pageContext.request.contextPath}/product/${mouse.id}">
                                     <div class="col-lg-3 col-6 pb-4">
                                         <div class="pro-img">
                                             <img src="${mouse.image}">
@@ -502,7 +502,7 @@
                     <div class="section-body">
                         <div class="body-content">
                             <c:forEach items="${home.keyboards}" var="keyboard" varStatus="temp">
-                                <a class="pe-auto" href="#">
+                                <a class="pe-auto" href="${pageContext.request.contextPath}/product/${keyboard.id}">
                                     <div class="col-lg-3 col-6 pb-4">
                                         <div class="pro-img">
                                             <img src="${keyboard.image}">

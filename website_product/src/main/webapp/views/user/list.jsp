@@ -54,7 +54,7 @@
                                         <div class="row">
                                             <c:forEach items="${products}" var="product" varStatus="temp">
                                                 <div class="col-lg-3 col-6 pb-4">
-                                                    <a href="#" class="pe-auto">
+                                                    <a href="${pageContext.request.contextPath}/product/${product.id}" class="pe-auto">
                                                         <div class="pro-img">
                                                             <img src="${pageContext.request.contextPath}/${product.image}">
                                                         </div>
