@@ -293,43 +293,43 @@
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="../../resources/images/dashboard/image1.png" class="d-block w-100"
+                                    <img src="${pageContext.request.contextPath}/resources/images/dashboard/image1.png" class="d-block w-100"
                                          alt="resources/images/dashboard/image1.png">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../../resources/images/dashboard/image2.png" class="d-block w-100"
+                                    <img src="${pageContext.request.contextPath}/resources/images/dashboard/image2.png" class="d-block w-100"
                                          alt="resources/images/dashboard/image2.png">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../../resources/images/dashboard/image3.png" class="d-block w-100"
+                                    <img src="${pageContext.request.contextPath}/resources/images/dashboard/image3.png" class="d-block w-100"
                                          alt="resources/images/dashboard/image3.png">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../../resources/images/dashboard/image4.png" class="d-block w-100"
+                                    <img src="${pageContext.request.contextPath}/resources/images/dashboard/image4.png" class="d-block w-100"
                                          alt="resources/images/dashboard/image4.png">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../../resources/images/dashboard/image5.png" class="d-block w-100"
+                                    <img src="${pageContext.request.contextPath}/resources/images/dashboard/image5.png" class="d-block w-100"
                                          alt="resources/images/dashboard/image5.png">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../../resources/images/dashboard/image6.png" class="d-block w-100"
+                                    <img src="${pageContext.request.contextPath}/resources/images/dashboard/image6.png" class="d-block w-100"
                                          alt="resources/images/dashboard/image6.png">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../../resources/images/dashboard/image7.png" class="d-block w-100"
+                                    <img src="${pageContext.request.contextPath}/resources/images/dashboard/image7.png" class="d-block w-100"
                                          alt="resources/images/dashboard/image7.png">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../../resources/images/dashboard/image8.png" class="d-block w-100"
+                                    <img src="${pageContext.request.contextPath}/resources/images/dashboard/image8.png" class="d-block w-100"
                                          alt="resources/images/dashboard/image8.png">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../../resources/images/dashboard/image9.png" class="d-block w-100"
+                                    <img src="${pageContext.request.contextPath}/resources/images/dashboard/image9.png" class="d-block w-100"
                                          alt="resources/images/dashboard/image9.png">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="../../resources/images/dashboard/image10.png" class="d-block w-100"
+                                    <img src="${pageContext.request.contextPath}/resources/images/dashboard/image10.png" class="d-block w-100"
                                          alt="resources/images/dashboard/image10.png">
                                 </div>
                             </div>
@@ -368,7 +368,7 @@
                             <div class="col-lg-3 col-6 pb-4">
                                 <a href="${pageContext.request.contextPath}/product/${laptop.id}" class="pe-auto">
                                     <div class="pro-img">
-                                        <img src="${laptop.image}">
+                                        <img src="${pageContext.request.contextPath}/${laptop.image}">
                                     </div>
                                     <div class="pro-detail">
                                         <h3 class="pro-name">
@@ -413,7 +413,7 @@
                                 <a class="pe-auto" href="${pageContext.request.contextPath}/product/${screen.id}">
                                     <div class="col-lg-3 col-6 pb-4">
                                         <div class="pro-img">
-                                            <img src="${screen.image}">
+                                            <img src="${pageContext.request.contextPath}/${screen.image}">
                                         </div>
                                         <div class="pro-detail">
                                             <h3 class="pro-name">
@@ -459,7 +459,7 @@
                                 <a class="pe-auto" href="${pageContext.request.contextPath}/product/${mouse.id}">
                                     <div class="col-lg-3 col-6 pb-4">
                                         <div class="pro-img">
-                                            <img src="${mouse.image}">
+                                            <img src="${pageContext.request.contextPath}/${mouse.image}">
                                         </div>
                                         <div class="pro-detail">
                                             <h3 class="pro-name">
@@ -505,7 +505,7 @@
                                 <a class="pe-auto" href="${pageContext.request.contextPath}/product/${keyboard.id}">
                                     <div class="col-lg-3 col-6 pb-4">
                                         <div class="pro-img">
-                                            <img src="${keyboard.image}">
+                                            <img src="${pageContext.request.contextPath}/${keyboard.image}">
                                         </div>
                                         <div class="pro-detail">
                                             <h3 class="pro-name">
