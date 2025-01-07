@@ -10,7 +10,6 @@ public class Product {
     private int categoryId;
     private String created_at;
 //    Product(id,name_u,description_u,price_u,quantity_u,image_u,categoryId_u)
-    public Product( long id ,String name_u , String description_u ,double price_u ,int quantity_u,String image_u,int categoryId_u ) {}
     public Product(String name, String description, double price, int quantity, String image, int category_id) {
         this.name = name;
         this.description = description;
@@ -19,7 +18,6 @@ public class Product {
         this.image = image;
         this.categoryId = category_id;
     }
-    public Product(int id, String name, String description, int price, double stock, String image, String category_id, String created_at) {}
     public Product(int id, String name, String description, double price, int quantity, String image, int categoryId, String created_at) {
         this.id = id;
         this.name = name;
