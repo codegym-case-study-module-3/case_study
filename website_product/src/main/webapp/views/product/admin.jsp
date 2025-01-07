@@ -8,7 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,7 +15,7 @@
   <meta name="description" content="GEAR.VN" />
   <meta name="author" content="GEAR.VN" />
   <title>Dashboard PRODUCT</title>
-  <link href="resources/css/admin/styles.css" rel="stylesheet" />
+<%--  <link href="../../resources/css/styles.css" rel="stylesheet" />--%>
 
   <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -63,12 +62,10 @@ class="fas fa-search"></i></button>
     <li><a class="dropdown-item" href="../login/login.html">Logout</a></li>
   </ul>
   </li>
-
   </ul>
 </nav>
 <div id="layoutSidenav">
 <%--  <!-- <jsp:include page="../layout/sidebar.jsp" /> -->--%>
-
   <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
       <div class="sb-sidenav-menu">
@@ -135,7 +132,7 @@ class="fas fa-search"></i></button>
         <body>
 
         <div class="container">
-          <button class="btn btn-primary" onclick="window.location.href='/product?action=create'"
+          <button class="btn btn-primary" onclick="window.location.href='/admin/product?action=create'"
           >Thêm mới</button>
 
           <table class="table table-hover">
@@ -160,9 +157,9 @@ class="fas fa-search"></i></button>
                 <td>${product.name}</td>
                 <td>${product.description}</td>
                 <td>${product.price}</td>
-                <td>${product.stock}</td>
+                <td>${product.quantity}</td>
                 <td>${product.image}</td>
-                <td>${product.category_id}</td>
+                <td>${product.categoryId}</td>
                 <td>${product.created_at}</td>
                 <td>
                   <button class="btn btn-warning"
@@ -271,9 +268,7 @@ class="fas fa-search"></i></button>
   },3000)
 </script>
 
-<script src="../../../resources/js/scripts.js"></script>
-<script src="../../../resources/js/datatables-simple-demo.js"></script>
-
+<script src="../../resources/js/scripts.js"></script>
+<script src="../../resources/js/datatables-simple-demo.js"></script>
 </body>
-
 </html>

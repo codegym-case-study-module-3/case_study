@@ -9,8 +9,15 @@ public class Product {
     private String image;
     private int categoryId;
     private String created_at;
-
-    public Product() {}
+    public Product(String name, String description, double price, int quantity, String image, int category_id) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+        this.image = image;
+        this.categoryId = category_id;
+    }
+    public Product(int id, String name, String description, int price, double stock, String image, String category_id, String created_at) {}
     public Product(int id, String name, String description, double price, int quantity, String image, int categoryId, String created_at) {
         this.id = id;
         this.name = name;
@@ -29,6 +36,9 @@ public class Product {
         this.image = image;
         this.categoryId = categoryId;
         this.created_at = created_at;
+    }
+
+    public Product(int id, String name, int description, int price, int stock, String image, String categoryId, String createdAt) {
     }
 
     public int getId() {

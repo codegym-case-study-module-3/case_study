@@ -17,8 +17,8 @@ import java.util.List;
 
 import static jdk.internal.org.jline.utils.Colors.s;
 
-@WebServlet(name = "productController", urlPatterns = "/product")
-public class ProductController extends HttpServlet  {
+@WebServlet(name = "productController", urlPatterns = {"/product", "/admin/product"})
+public class ProductController extends HttpServlet {
     private IProduct productService = new ProductService();
 
     @Override
@@ -30,15 +30,20 @@ public class ProductController extends HttpServlet  {
         }
         switch (action) {
             case "create":
-                req.getRequestDispatcher("/WEB-INF/view/admin/product/create.jsp").forward(req, resp);
+                req.getRequestDispatcher("/views/admin/product/creatProduct.jsp").forward(req, resp);
                 break;
             case "update":
                 req.getRequestDispatcher("/WEB-INF/view/admin/product/update.jsp").forward(req, resp);
                 break;
             case "delete":
-                int id = Integer.parseInt(req.getParameter("id"));
-                productService.remove(id);
-                resp.sendRedirect("/product?message=deleted");
+//                int id1 = Integer.parseInt(req.getParameter("id"));
+//                studentService.remove(id1);
+//
+//                resp.sendRedirect("/student?message=deleted");
+//                break;
+                int id1 = Integer.parseInt(req.getParameter("id"));
+                productService.remove(id1);
+                resp.sendRedirect("/admin/product?message=deleted");
                 break;
             default:
                 String message = req.getParameter("message");
@@ -51,11 +56,13 @@ public class ProductController extends HttpServlet  {
                 }
                 List<Product> products = productService.getAll();
                 req.setAttribute("products", products);
-                    req.getRequestDispatcher("views/product/admin.jsp").forward(req, resp);
+//                    req.getRequestDispatcher("views/product/admin.jsp").forward(req, resp);
+                req.getRequestDispatcher("/views/product/admin.jsp").forward(req, resp);
 //                req.setAttribute("contentPage","views/product/layout/list.jsp");
 //                req.getRequestDispatcher("views/product/admin.jsp").forward(req, resp);
         }
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -68,31 +75,35 @@ public class ProductController extends HttpServlet  {
             case "create":
                 String name = req.getParameter("name");
                 String description = req.getParameter("description");
-                int price = Integer.parseInt(req.getParameter("price"));
-                int stock = Integer.parseInt(req.getParameter("stock"));
+                double price = Double.parseDouble((req.getParameter("price")));
+                int quantity = Integer.parseInt(req.getParameter("stock")); // Đổi từ stock sang quantity
                 String image = req.getParameter("image");
-                int category_id = Integer.parseInt(req.getParameter("category_id"));
-                String created_at = req.getParameter("created_at");
-                Product product = new Product(name,description,price,stock,image,category_id,created_at);
+                int categoryId = Integer.parseInt(req.getParameter("category_id")); // Đổi từ category_id sang categoryId
+//                String createdAt = req.getParameter("created_at");
+                Product product = new Product(name, description, price, quantity, image, categoryId);
                 productService.save(product);
-                resp.sendRedirect("/product?message=created");
+                resp.sendRedirect("/admin/product?message=created");
                 break;
+
+
 
             case "update":
                 int id = Integer.parseInt(req.getParameter("id"));
                 String name_u = req.getParameter("name");
                 String description_u = req.getParameter("description");
                 int price_u = Integer.parseInt(req.getParameter("price"));
-                int stock_u = Integer.parseInt(req.getParameter("stock"));
+                int quantity_u = Integer.parseInt(req.getParameter("stock")); // Đổi từ stock sang quantity
                 String image_u = req.getParameter("image");
-                int category_id_u = Integer.parseInt(req.getParameter("category_id"));
-                String created_at_u = req.getParameter("created_at");
-                Product productUpdate = new Product(id,name_u, description_u,price_u,stock_u,image_u,category_id_u,created_at_u);
-                productService.update(id,productUpdate);
-                resp.sendRedirect("/product?message=created");
+                int categoryId_u = Integer.parseInt(req.getParameter("categoryId")); // Đổi từ category_id sang categoryId
+                String createdAt_u = req.getParameter("created_at");
+                Product productUpdate = new Product(id, name_u, description_u, price_u, quantity_u, image_u, categoryId_u, createdAt_u);
+                productService.update(id, productUpdate);
+                resp.sendRedirect("/product?message=updated");
                 break;
+
 
         }
     }
 }
+
 
