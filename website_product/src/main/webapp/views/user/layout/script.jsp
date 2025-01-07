@@ -2,3 +2,4 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 <script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery.js" crossorigin="anonymous"></script>
+<script src="${pageContext.request.contextPath}/resources/js/user.js"></script>

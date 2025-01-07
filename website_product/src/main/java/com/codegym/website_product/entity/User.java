@@ -31,6 +31,11 @@ public class User {
         this.account_id = account_id;
     }
 
+    public User(String fullName, int account_id) {
+        this.fullName = fullName;
+        this.account_id = account_id;
+    }
+
     public int getId() {
         return id;
     }

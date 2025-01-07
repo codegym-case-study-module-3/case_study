@@ -14,12 +14,15 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form id="form-info-order" class="" action="" method="post">
+        <form id="form_register" class="" action="" method="post">
           <div class="row form-group align-items-center mb-2">
             <label class="col-11 col-form-label" for="name">Họ tên</label>
             <div class="col-12">
               <input type="text" class="form-control form-control-sm" placeholder="Nhập họ tên" id="name" name="name"
                      value="" />
+              <span class="invalid-feedback" role="alert">
+                  <strong></strong>
+              </span>
             </div>
           </div>
           <div class="row form-group align-items-center mb-2">
@@ -27,20 +30,36 @@
             <div class="col-12">
               <input type="text" class="form-control form-control-sm" placeholder="Nhập email" id="email" name="email"
                      value="" />
+              <span class="invalid-feedback" role="alert">
+                  <strong></strong>
+              </span>
             </div>
           </div>
           <div class="row form-group align-items-center mb-2">
             <label class="col-11 col-form-label" for="password">Mật khẩu</label>
             <div class="col-12">
-              <input type="text" class="form-control form-control-sm" placeholder="Nhập mật khẩu" id="password" name="password"
+              <input type="password" class="form-control form-control-sm" placeholder="Nhập mật khẩu" id="password" name="password"
                      value="" />
+              <span class="invalid-feedback" role="alert">
+                  <strong></strong>
+              </span>
+            </div>
+          </div>
+          <div class="row form-group align-items-center mb-2">
+            <label class="col-11 col-form-label" for="confirm_password">Xác nhận mật khẩu</label>
+            <div class="col-12">
+              <input type="password" class="form-control form-control-sm" placeholder="Nhập lại mật khẩu" id="confirm_password" name="confirm_password"
+                     value="" />
+              <span class="invalid-feedback" role="alert">
+                  <strong></strong>
+              </span>
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <div class="col-12">
-          <button type="button" class="btn btn-danger w-100">TẠO TÀI KHOẢN</button>
+          <button type="button" id="btn_register" class="btn btn-danger w-100">TẠO TÀI KHOẢN</button>
         </div>
       </div>
     </div>

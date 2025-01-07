@@ -1,7 +1,7 @@
 package com.codegym.website_product.bean;
 
 import com.codegym.website_product.entity.Product;
-import com.codegym.website_product.service.ProductService;
+import com.codegym.website_product.service.impl.ProductService;
 
 import java.io.Serializable;
 import java.util.ArrayList;

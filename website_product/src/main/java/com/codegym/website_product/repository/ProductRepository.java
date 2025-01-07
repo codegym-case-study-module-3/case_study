@@ -12,6 +12,60 @@ import java.util.List;
 public class ProductRepository {
     private static List<Product> products = new ArrayList<>();
 
+    private static String selectAll = "select * from products";
+
+    public Product findById(int id) {
+        String query = "SELECT * FROM products WHERE id = ?";
+        try (Connection connection = BaseRepository.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setInt(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                return new Product(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("description"),
+                        resultSet.getDouble("price"),
+                        resultSet.getInt("stock"),
+                        resultSet.getString("image"),
+                        resultSet.getInt("category_id"),
+                        resultSet.getString("created_at")
+                );
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public List<Product> findByName(String name) {
+        List<Product> products = new ArrayList<>();
+        String query = "SELECT * FROM products WHERE name LIKE ?";
+        try (Connection connection = BaseRepository.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+
+            statement.setString(1, "%" + name + "%");
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                products.add(new Product(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("description"),
+                        resultSet.getDouble("price"),
+                        resultSet.getInt("stock"),
+                        resultSet.getString("image"),
+                        resultSet.getInt("category_id"),
+                        resultSet.getString("created_at")
+                ));
+
+            }
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+        return products;
+    }
     public List<Product> getAll() {
         List<Product> products = new ArrayList<>();
         try {
