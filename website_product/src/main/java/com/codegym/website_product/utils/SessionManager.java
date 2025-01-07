@@ -9,22 +9,25 @@ public class SessionManager {
         session.setAttribute("email", email);
         session.setAttribute("role", role);
     }
+
     public static String getEmail(HttpServletRequest request) {
         HttpSession session = request.getSession();
         return (String) session.getAttribute("email");
     }
+
     public static String getRole(HttpServletRequest request) {
         HttpSession session = request.getSession();
         return (String) session.getAttribute("role");
     }
+
     public static void removeSession(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        session.removeAttribute("email");
-        session.removeAttribute("role");
+        session.invalidate();
     }
+
     public static boolean isUserLoggedIn(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        if(session != null) {
+        if (session != null && session.getAttribute("email") != null) {
             return true;
         } else {
             return false;
