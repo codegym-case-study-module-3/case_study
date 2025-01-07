@@ -30,22 +30,24 @@ public class ProductController extends HttpServlet  {
                 req.getRequestDispatcher("/views/admin/product/creatProduct.jsp").forward(req, resp);
                 break;
             case "update":
-                try {
-                    int id = Integer.parseInt(req.getParameter("id"));
-                    Product product = productService.getProductById(id);
-                    req.setAttribute("product", product);
-                    req.getRequestDispatcher("/views/admin/product/update.jsp").forward(req, resp);
-                } catch (NumberFormatException | NullPointerException e) {
-                    resp.sendRedirect("/admin/product?error=invalid_id");
-                }
+                req.getRequestDispatcher("/WEB-INF/view/admin/product/update.jsp").forward(req, resp);
                 break;
+//                try {
+//                    int id = Integer.parseInt(req.getParameter("id"));
+//                    Product product = productService.getProductById(id);
+//                    req.setAttribute("product", product);
+//                    req.getRequestDispatcher("/views/admin/product/update.jsp").forward(req, resp);
+//                } catch (NumberFormatException | NullPointerException e) {
+//                    resp.sendRedirect("/admin/product?error=invalid_id");
+//                }
+//                break;
             case "delete":
 //                int id1 = Integer.parseInt(req.getParameter("id"));
 //                studentService.remove(id1);
 //
 //                resp.sendRedirect("/student?message=deleted");
 //                break;
-                long id1 = Integer.parseInt(req.getParameter("id"));
+                long id1 = Long.parseLong(req.getParameter("id"));
                 productService.remove(id1);
                 resp.sendRedirect("/admin/product?message=deleted");
                 break;
