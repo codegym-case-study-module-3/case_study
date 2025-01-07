@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 @WebServlet(name = "loginController", urlPatterns = "/login")
 public class LoginController extends HttpServlet {
@@ -29,7 +30,7 @@ public class LoginController extends HttpServlet {
 
         Account account = accountService.findAccByEmailAndPassword(email, password);
         Map<String, String> res = new HashMap<String, String>();
-        if (account == null || (account != null && account.getRole() != "user")) {
+        if (account == null || (account != null && !Objects.equals(account.getRole(), "user"))) {
             res.put("message", "Tài khoản không tồn tại. Vui lòng nhập lại!!!!");
             res.put("status", "error");
         } else {
