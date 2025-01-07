@@ -30,7 +30,14 @@ public class ProductController extends HttpServlet  {
                 req.getRequestDispatcher("/views/admin/product/creatProduct.jsp").forward(req, resp);
                 break;
             case "update":
-                req.getRequestDispatcher("/WEB-INF/view/admin/product/update.jsp").forward(req, resp);
+                try {
+                    int id = Integer.parseInt(req.getParameter("id"));
+                    Product product = productService.getProductById(id);
+                    req.setAttribute("product", product);
+                    req.getRequestDispatcher("/views/admin/product/update.jsp").forward(req, resp);
+                } catch (NumberFormatException | NullPointerException e) {
+                    resp.sendRedirect("/admin/product?error=invalid_id");
+                }
                 break;
             case "delete":
 //                int id1 = Integer.parseInt(req.getParameter("id"));
@@ -38,7 +45,7 @@ public class ProductController extends HttpServlet  {
 //
 //                resp.sendRedirect("/student?message=deleted");
 //                break;
-                int id1 = Integer.parseInt(req.getParameter("id"));
+                long id1 = Integer.parseInt(req.getParameter("id"));
                 productService.remove(id1);
                 resp.sendRedirect("/admin/product?message=deleted");
                 break;
@@ -54,7 +61,7 @@ public class ProductController extends HttpServlet  {
                 List<Product> products = productService.getAll();
                 req.setAttribute("products", products);
 //                    req.getRequestDispatcher("views/product/admin.jsp").forward(req, resp);
-                req.getRequestDispatcher("/views/product/admin.jsp").forward(req, resp);
+                req.getRequestDispatcher("/views/admin/product/admin.jsp").forward(req, resp);
 //                req.setAttribute("contentPage","views/product/layout/list.jsp");
 //                req.getRequestDispatcher("views/product/admin.jsp").forward(req, resp);
         }
@@ -81,23 +88,50 @@ public class ProductController extends HttpServlet  {
                 productService.save(product);
                 resp.sendRedirect("/admin/product?message=created");
                 break;
-
-
+//            case "update":
+//                int id = Integer.parseInt(req.getParameter("id"));
+//                String name_u = req.getParameter("name");
+//                String description_u = req.getParameter("description");
+//                int price_u = Integer.parseInt(req.getParameter("price"));
+//                int quantity_u = Integer.parseInt(req.getParameter("stock")); // Đổi từ stock sang quantity
+//                String image_u = req.getParameter("image");
+//                int categoryId_u = Integer.parseInt(req.getParameter("categoryId")); // Đổi từ category_id sang categoryId
+//                String createdAt_u = req.getParameter("created_at");
+//                Product productUpdate = new Product(id, name_u, description_u, price_u, quantity_u, image_u, categoryId_u, createdAt_u);
+//                productService.update(id, productUpdate);
+//                resp.sendRedirect("/product?message=updated");
+//                break;
 
             case "update":
-                int id = Integer.parseInt(req.getParameter("id"));
-                String name_u = req.getParameter("name");
-                String description_u = req.getParameter("description");
-                int price_u = Integer.parseInt(req.getParameter("price"));
-                int quantity_u = Integer.parseInt(req.getParameter("stock")); // Đổi từ stock sang quantity
-                String image_u = req.getParameter("image");
-                int categoryId_u = Integer.parseInt(req.getParameter("categoryId")); // Đổi từ category_id sang categoryId
-                String createdAt_u = req.getParameter("created_at");
-                Product productUpdate = new Product(id, name_u, description_u, price_u, quantity_u, image_u, categoryId_u, createdAt_u);
-                productService.update(id, productUpdate);
-                resp.sendRedirect("/product?message=updated");
+                try {
+                    long id = Integer.parseInt(req.getParameter("id"));
+                    String name_u = req.getParameter("name");
+                    String description_u = req.getParameter("description");
+                    double price_u = Double.parseDouble(req.getParameter("price"));
+                    int quantity_u = Integer.parseInt(req.getParameter("stock"));
+                    String image_u = req.getParameter("image");
+                    int categoryId_u = Integer.parseInt(req.getParameter("category_id"));
+
+                    Product productUpdate = new Product(id,name_u,description_u,price_u,quantity_u,image_u,categoryId_u);
+                    productService.update(id,productUpdate);
+
+                    resp.sendRedirect("/admin/product?message=updated");
+                } catch (NumberFormatException | NullPointerException e) {
+                    req.setAttribute("error", "Lỗi dữ liệu nhập vào!");
+                    req.getRequestDispatcher("/views/admin/product/update.jsp").forward(req, resp);
+                }
                 break;
 
+            case "delete":
+                try {
+                    int id1 = Integer.parseInt(req.getParameter("id"));
+                    productService.remove(id1);
+                    resp.sendRedirect("/admin/product?message=deleted");
+                } catch (NumberFormatException e) {
+                    req.setAttribute("error", "Lỗi: Không thể xóa sản phẩm do ID không hợp lệ.");
+                    req.getRequestDispatcher("/views/admin/product/admin.jsp").forward(req, resp);
+                }
+                break;
 
         }
     }

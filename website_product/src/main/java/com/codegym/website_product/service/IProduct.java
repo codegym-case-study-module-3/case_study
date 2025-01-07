@@ -12,4 +12,5 @@ public interface IProduct extends IService<Product> {
     Product findById(int id);
     List<Product> findByName(String name);
 
+    Product getProductById(int id);
 }

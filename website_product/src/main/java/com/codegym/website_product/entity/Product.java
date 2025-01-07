@@ -9,6 +9,8 @@ public class Product {
     private String image;
     private int categoryId;
     private String created_at;
+//    Product(id,name_u,description_u,price_u,quantity_u,image_u,categoryId_u)
+    public Product( long id ,String name_u , String description_u ,double price_u ,int quantity_u,String image_u,int categoryId_u ) {}
     public Product(String name, String description, double price, int quantity, String image, int category_id) {
         this.name = name;
         this.description = description;

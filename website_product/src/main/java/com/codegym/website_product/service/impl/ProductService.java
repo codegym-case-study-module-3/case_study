@@ -14,17 +14,13 @@ public class ProductService implements IProduct {
         List<Product> products = productRepository.getAll();
         return products;
     }
-
     @Override
     public void save(Product p){
         productRepository.save(p);
     }
-
     @Override
     public void update(int id, Product p) {
-
     }
-
     @Override
     public void remove(int id) {
 
@@ -36,6 +32,7 @@ public class ProductService implements IProduct {
     }
     @Override
     public void remove(long id){
+
         productRepository.deleteById((int) id);
     }
 
@@ -56,6 +53,11 @@ public class ProductService implements IProduct {
     @Override
     public List<Product> findByName(String name) {
         return productRepository.findByName(name);
+    }
+
+    @Override
+    public Product getProductById(int id) {
+        return productRepository.findById(id);
     }
 
     public List<Product> getAllByCategory(int categoryId) {
