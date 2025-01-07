@@ -2896,8 +2896,8 @@ svg.icon {
   margin: 0;
   list-style: none; }
 
-.main-header--account .account-dropdown .block ul li {
-  padding: 10px 16px; }
+/*.main-header--account .account-dropdown .block ul li {*/
+/*  padding: 10px 16px; }*/
 
 .main-header--account .account-dropdown .block + .block {
   border-top: 1px solid rgba(0, 0, 0, 0.063); }

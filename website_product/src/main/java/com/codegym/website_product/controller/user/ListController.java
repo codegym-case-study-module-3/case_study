@@ -47,6 +47,7 @@ public class ListController extends HttpServlet {
             } else {
                 breadCrumb = "Kết quả tìm kiếm";
                 products = productService.findByName(search);
+                req.setAttribute("search", search);
             }
         }
         req.setAttribute("products", products);

@@ -14,9 +14,6 @@ public class SearchController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String search = req.getParameter("q");
         if (search != null) {
-            HttpSession session = req.getSession();
-            session.setAttribute("search", search);
-            search = search.toLowerCase();
             resp.sendRedirect(req.getContextPath() + "/list?search=" + search);
         }
 

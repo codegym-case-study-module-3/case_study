@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header class="main-header">
     <div class="main-header--top">
@@ -26,14 +27,11 @@
                                   method="post"
                                   class="searchform-product searchform-categoris ultimate-search"
                                   id="searchform-product">
-                                <%
-                                    String search = (String) session.getAttribute("search");
-                                %>
                                 <div class="wpo-search-inner">
                                     <input type="hidden" name="type" value="product">
                                     <input required="" id="inputSearchAuto" class="input-search" name="q"
                                            maxlength="40" autocomplete="off" type="text" size="20"
-                                           value="<%= search==null?"":search %>"
+                                           value="${search==null?"":search}"
                                            placeholder="Bạn cần tìm gì?">
                                 </div>
                                 <button type="submit" class="btn-search btn" id="btn-search">
@@ -165,15 +163,25 @@
                             </svg>
                         </span>
                     </span>
-                                <span class="box-text">
-                        <span class="txtnw">Đăng</span>
-                        <span class="txtbl">nhập</span>
-
-<%--                        <span class="txtnw">Xin chào</span>--%>
-<%--                        <span class="txtbl">tên user</span>--%>
+                    <span class="box-text">
+                        <%
+                            String isLogged = (String) session.getAttribute("isLogged");
+                        %>
+                        <c:choose>
+                            <c:when test="${isLogged == null}">
+                                <span class="txtnw">Đăng</span>
+                                <span class="txtbl">nhập</span>
+                            </c:when>
+                            <c:otherwise>
+                                <%
+                                    String name = (String) session.getAttribute("name");
+                                %>
+                                <span class="txtnw">Xin chào</span>
+                                <span class="txtbl">${name}</span>
+                            </c:otherwise>
+                        </c:choose>
                     </span>
                             </a>
-
                             <span class="box-triangle">
                       <svg viewBox="0 0 20 9" role="presentation">
                           <path d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z"
@@ -203,44 +211,58 @@
                                             </svg>
                                         </div>
                                         <div class="d-flex flex-column">
-                                            <%--                          <div class="thing-name">Xin chào, vui lòng đăng nhập</div>--%>
-                                            <div class="thing-name">Xin chào, hoàng null</div>
+                                            <c:choose>
+                                                <c:when test="${isLogged == null}">
+                                                    <div class="thing-name">Xin chào, vui lòng đăng nhập</div>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <div class="thing-name">Xin chào, ${name}</div>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </div>
                                     </div>
-                                    <div class="actions">
-                                        <button class="js-account" data-box="acc-login-box">ĐĂNG NHẬP</button>
-                                        <button class="js-account" data-box="acc-register-box">ĐĂNG KÝ</button>
-                                    </div>
+                                    <c:choose>
+                                        <c:when test="${isLogged == null}">
+                                            <div class="actions">
+                                                <button class="js-account" type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#modalLogin" data-box="acc-login-box">ĐĂNG NHẬP</button>
+                                                <button class="js-account" type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#modalRegister" data-box="acc-register-box">ĐĂNG KÝ</button>
+                                            </div>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <%-- Đã đăng nhập --%>
+                                            <div class="block block--4">
+                                                <ul>
+                                                    <li>
+                                                        <a href="/logout" class="thing js-btn-logout">
+                                                            <div class="thing-img">
+                                                                <svg width="21" height="21"viewBox="0 0 21 21" fill="none"xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path d="M20.343 9.84414H12.0307C11.6685 9.84414 11.3745 9.55015 11.3745 9.18791C11.3745 8.82567 11.6685 8.53168 12.0307 8.53168H20.343C20.7053 8.53168 20.9993 8.82567 20.9993 9.18791C20.9993 9.55015 20.7053 9.84414 20.343 9.84414Z"
+                                                                              fill="black"></path>
+                                                                        <path d="M17.0618 13.1252C16.8938 13.1252 16.7259 13.0613 16.598 12.9328C16.3417 12.6763 16.3417 12.2607 16.598 12.0044L19.4155 9.18704L16.598 6.36955C16.3417 6.11321 16.3417 5.69762 16.598 5.44128C16.8545 5.18478 17.2701 5.18478 17.5264 5.44128L20.8076 8.72242C21.0639 8.97876 21.0639 9.39435 20.8076 9.65069L17.5264 12.9318C17.3978 13.0613 17.2299 13.1252 17.0618 13.1252Z"
+                                                                              fill="black"></path>
+                                                                        <path d="M6.99983 21.0006C6.81255 21.0006 6.63487 20.9743 6.45736 20.9192L1.19166 19.1649C0.47519 18.9147 0 18.2471 0 17.5008V1.75128C0 0.786162 0.78488 0.00128174 1.75 0.00128174C1.93713 0.00128174 2.1148 0.0275566 2.29248 0.0826696L7.55801 1.83699C8.27464 2.08725 8.74967 2.75485 8.74967 3.50112V19.2506C8.74967 20.2157 7.96495 21.0006 6.99983 21.0006ZM1.75 1.31374C1.50936 1.31374 1.31246 1.51064 1.31246 1.75128V17.5008C1.31246 17.6871 1.43758 17.8603 1.61606 17.9225L6.85709 19.6689C6.89474 19.6811 6.94376 19.6882 6.99983 19.6882C7.24047 19.6882 7.43721 19.4913 7.43721 19.2506V3.50112C7.43721 3.31479 7.31209 3.1416 7.13361 3.07944L1.89259 1.33297C1.85494 1.32079 1.80591 1.31374 1.75 1.31374Z"
+                                                                              fill="black"></path>
+                                                                        <path d="M13.3433 7.00051C12.981 7.00051 12.687 6.70652 12.687 6.34428V2.4069C12.687 1.80402 12.1963 1.31313 11.5934 1.31313H1.74998C1.38774 1.31313 1.09375 1.01914 1.09375 0.656901C1.09375 0.294661 1.38774 0.000671387 1.74998 0.000671387H11.5934C12.9208 0.000671387 13.9995 1.07954 13.9995 2.4069V6.34428C13.9995 6.70652 13.7055 7.00051 13.3433 7.00051Z"
+                                                                              fill="black"></path>
+                                                                        <path d="M11.5935 18.3751H8.09349C7.73125 18.3751 7.43726 18.0811 7.43726 17.7188C7.43726 17.3566 7.73125 17.0626 8.09349 17.0626H11.5935C12.1964 17.0626 12.6871 16.5717 12.6871 15.9688V12.0315C12.6871 11.6692 12.9811 11.3752 13.3433 11.3752C13.7056 11.3752 13.9996 11.6692 13.9996 12.0315V15.9688C13.9996 17.2962 12.9208 18.3751 11.5935 18.3751Z"
+                                                                              fill="black"></path>
+                                                                    </g>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="d-flex flex-column">
+                                                                <div class="thing-name">Đăng xuất</div>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <%-- --%>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
-                                <%-- Đã đăng nhập --%>
-                                <%--                    <div class="block block--4">--%>
-                                <%--                      <ul>--%>
-                                <%--                        <li>--%>
-                                <%--                          <a href="#" class="thing js-btn-logout">--%>
-                                <%--                            <div class="thing-img">--%>
-                                <%--                              <svg width="21" height="21"viewBox="0 0 21 21" fill="none"xmlns="http://www.w3.org/2000/svg">--%>
-                                <%--                                <g>--%>
-                                <%--                                  <path d="M20.343 9.84414H12.0307C11.6685 9.84414 11.3745 9.55015 11.3745 9.18791C11.3745 8.82567 11.6685 8.53168 12.0307 8.53168H20.343C20.7053 8.53168 20.9993 8.82567 20.9993 9.18791C20.9993 9.55015 20.7053 9.84414 20.343 9.84414Z"--%>
-                                <%--                                          fill="black"></path>--%>
-                                <%--                                  <path d="M17.0618 13.1252C16.8938 13.1252 16.7259 13.0613 16.598 12.9328C16.3417 12.6763 16.3417 12.2607 16.598 12.0044L19.4155 9.18704L16.598 6.36955C16.3417 6.11321 16.3417 5.69762 16.598 5.44128C16.8545 5.18478 17.2701 5.18478 17.5264 5.44128L20.8076 8.72242C21.0639 8.97876 21.0639 9.39435 20.8076 9.65069L17.5264 12.9318C17.3978 13.0613 17.2299 13.1252 17.0618 13.1252Z"--%>
-                                <%--                                          fill="black"></path>--%>
-                                <%--                                  <path d="M6.99983 21.0006C6.81255 21.0006 6.63487 20.9743 6.45736 20.9192L1.19166 19.1649C0.47519 18.9147 0 18.2471 0 17.5008V1.75128C0 0.786162 0.78488 0.00128174 1.75 0.00128174C1.93713 0.00128174 2.1148 0.0275566 2.29248 0.0826696L7.55801 1.83699C8.27464 2.08725 8.74967 2.75485 8.74967 3.50112V19.2506C8.74967 20.2157 7.96495 21.0006 6.99983 21.0006ZM1.75 1.31374C1.50936 1.31374 1.31246 1.51064 1.31246 1.75128V17.5008C1.31246 17.6871 1.43758 17.8603 1.61606 17.9225L6.85709 19.6689C6.89474 19.6811 6.94376 19.6882 6.99983 19.6882C7.24047 19.6882 7.43721 19.4913 7.43721 19.2506V3.50112C7.43721 3.31479 7.31209 3.1416 7.13361 3.07944L1.89259 1.33297C1.85494 1.32079 1.80591 1.31374 1.75 1.31374Z"--%>
-                                <%--                                          fill="black"></path>--%>
-                                <%--                                  <path d="M13.3433 7.00051C12.981 7.00051 12.687 6.70652 12.687 6.34428V2.4069C12.687 1.80402 12.1963 1.31313 11.5934 1.31313H1.74998C1.38774 1.31313 1.09375 1.01914 1.09375 0.656901C1.09375 0.294661 1.38774 0.000671387 1.74998 0.000671387H11.5934C12.9208 0.000671387 13.9995 1.07954 13.9995 2.4069V6.34428C13.9995 6.70652 13.7055 7.00051 13.3433 7.00051Z"--%>
-                                <%--                                          fill="black"></path>--%>
-                                <%--                                  <path d="M11.5935 18.3751H8.09349C7.73125 18.3751 7.43726 18.0811 7.43726 17.7188C7.43726 17.3566 7.73125 17.0626 8.09349 17.0626H11.5935C12.1964 17.0626 12.6871 16.5717 12.6871 15.9688V12.0315C12.6871 11.6692 12.9811 11.3752 13.3433 11.3752C13.7056 11.3752 13.9996 11.6692 13.9996 12.0315V15.9688C13.9996 17.2962 12.9208 18.3751 11.5935 18.3751Z"--%>
-                                <%--                                          fill="black"></path>--%>
-                                <%--                                </g>--%>
-                                <%--                              </svg>--%>
-                                <%--                            </div>--%>
-                                <%--                            <div class="d-flex flex-column">--%>
-                                <%--                              <div class="thing-name">Đăng xuất</div>--%>
-                                <%--                            </div>--%>
-                                <%--                          </a>--%>
-                                <%--                        </li>--%>
-                                <%--                      </ul>--%>
-                                <%--                    </div>--%>
-                                <%-- --%>
                             </div>
                         </div>
                     </div>

@@ -25,179 +25,243 @@
                         <div>
                             <ul>
                                 <li class="item-submenu sm-1">
-                                    <a href="${pageContext.request.contextPath}/list/1">
+                                    <a href="${pageContext.request.contextPath}/list/1" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-laptop"></i>
+                            <i class="fa-solid fa-laptop"></i>
                         </span>
-                                        <span class="sidebar-text-center">Laptop</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Laptop</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-gamepad"></i>
+                            <i class="fa-solid fa-gamepad"></i>
                         </span>
-                                        <span class="sidebar-text-center">Laptop Gaming</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Laptop Gaming</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-desktop"></i>
+                            <i class="fa-solid fa-desktop"></i>
                         </span>
-                                        <span class="sidebar-text-center">PC</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">PC</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-desktop"></i>
+                            <i class="fa-solid fa-desktop"></i>
                         </span>
-                                        <span class="sidebar-text-center">Main, CPU, VGA</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Main, CPU, VGA</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-desktop"></i>
+                            <i class="fa-solid fa-desktop"></i>
                         </span>
-                                        <span class="sidebar-text-center">Case, Nguồn, Tản</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Case, Nguồn, Tản</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-memory"></i>
+                            <i class="fa-solid fa-memory"></i>
                         </span>
-                                        <span class="sidebar-text-center">Ổ cứng, RAM, Thẻ nhớ</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Ổ cứng, RAM, Thẻ nhớ</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-laptop"></i>
+                            <i class="fa-solid fa-laptop"></i>
                         </span>
-                                        <span class="sidebar-text-center">Loa, Micro, Webcam</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Loa, Micro, Webcam</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="${pageContext.request.contextPath}/list/6">
+                                    <a href="${pageContext.request.contextPath}/list/6" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-tv"></i>
+                            <i class="fa-solid fa-tv"></i>
                         </span>
-                                        <span class="sidebar-text-center">Màn hình</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Màn hình</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="${pageContext.request.contextPath}/list/3">
+                                    <a href="${pageContext.request.contextPath}/list/3" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-regular fa-keyboard"></i>
+                            <i class="fa-regular fa-keyboard"></i>
                         </span>
-                                        <span class="sidebar-text-center">Bàn phím</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Bàn phím</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="${pageContext.request.contextPath}/list/5">
+                                    <a href="${pageContext.request.contextPath}/list/5" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-computer-mouse"></i>
+                            <i class="fa-solid fa-computer-mouse"></i>
                         </span>
-                                        <span class="sidebar-text-center">Chuột + Lót chuột</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Chuột + Lót chuột</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-headphones"></i>
+                            <i class="fa-solid fa-headphones"></i>
                         </span>
-                                        <span class="sidebar-text-center">Tai Nghe</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Tai Nghe</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-chair"></i>
+                            <i class="fa-solid fa-chair"></i>
                         </span>
-                                        <span class="sidebar-text-center">Ghế - Bàn</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Ghế - Bàn</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-print"></i>
+                            <i class="fa-solid fa-print"></i>
                         </span>
-                                        <span class="sidebar-text-center">Phần mềm, mạng</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Phần mềm, mạng</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-gamepad"></i>
+                            <i class="fa-solid fa-gamepad"></i>
                         </span>
-                                        <span class="sidebar-text-center">Handheld, Console</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Handheld, Console</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-gamepad"></i>
+                            <i class="fa-solid fa-gamepad"></i>
                         </span>
-                                        <span class="sidebar-text-center">Phụ kiện (Hub, sạc, cáp..)</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Phụ kiện (Hub, sạc, cáp..)</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                                 <li class="item-submenu sm-1">
-                                    <a href="#">
+                                    <a href="#" class="d-flex justify-content-between">
+                                        <div>
                         <span class="sidebar-icon-left">
-                          <i class="fa-solid fa-gift"></i>
+                            <i class="fa-solid fa-gift"></i>
                         </span>
-                                        <span class="sidebar-text-center">Dịch vụ và thông tin khác</span>
-                                        <span class="sidebar-icon-right">
-                          <i class="fa-solid fa-chevron-right"></i>
+                                            <span class="sidebar-text-center">Dịch vụ và thông tin khác</span>
+                                        </div>
+                                        <div>
+                        <span class="sidebar-icon-right">
+                            <i class="fa-solid fa-chevron-right"></i>
                         </span>
+                                        </div>
                                     </a>
                                 </li>
                             </ul>
@@ -469,8 +533,13 @@
         </div>
     </div>
     <jsp:include page="layout/footer.jsp"/>
-    <jsp:include page="modal/modal_login.jsp"/>
-    <jsp:include page="modal/modal_register.jsp"/>
+    <%
+        String isLogged = (String) session.getAttribute("isLogged");
+    %>
+    <c:if test="${isLogged == null}">
+        <jsp:include page="modal/modal_login.jsp"/>
+        <jsp:include page="modal/modal_register.jsp"/>
+    </c:if>
 </div>
 <jsp:include page="layout/script.jsp"/>
 </body>

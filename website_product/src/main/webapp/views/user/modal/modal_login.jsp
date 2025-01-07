@@ -14,7 +14,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-info-order" class="" action="" method="post">
+                <form id="form_login" class="" action="" method="post">
                     <div class="row form-group align-items-center mb-2">
                         <label class="col-11 col-form-label" for="email">Email</label>
                         <div class="col-12">
@@ -25,15 +25,18 @@
                     <div class="row form-group align-items-center mb-2">
                         <label class="col-11 col-form-label" for="password">Mật khẩu</label>
                         <div class="col-12">
-                            <input type="text" class="form-control form-control-sm" placeholder="Nhập mật khẩu" id="password" name="password"
+                            <input type="password" class="form-control form-control-sm" placeholder="Nhập mật khẩu" id="password" name="password"
                                    value="" />
                         </div>
                     </div>
                 </form>
+                <div class="col-12 pt-2">
+                    <div class="text-danger error-message font-18 font-weight-bold"></div>
+                </div>
             </div>
             <div class="modal-footer">
                 <div class="col-12">
-                    <button type="button" class="btn btn-danger w-100">TẠO TÀI KHOẢN</button>
+                    <button type="button" id="btn_login" class="btn btn-danger w-100">ĐĂNG NHẬP</button>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ package com.codegym.website_product.service.admin.account;
 
 import com.codegym.website_product.entity.Account;
 import com.codegym.website_product.repository.AccountRepository;
-import com.codegym.website_product.service.impl.IAccount;
+import com.codegym.website_product.service.IAccount;
 
 import java.util.List;
 

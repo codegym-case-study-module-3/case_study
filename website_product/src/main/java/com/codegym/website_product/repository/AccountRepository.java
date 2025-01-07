@@ -30,10 +30,10 @@ public class AccountRepository {
 
     public void save(Account account) {
         try {
-            PreparedStatement statement = BaseRepository.getConnection().prepareStatement("insert into account(user_id, email,password, role) values (?,?,?,?)");
-            statement.setString(2, account.getEmail());
-            statement.setString(3, account.getPassword());
-            statement.setString(4, account.getRole());
+            PreparedStatement statement = BaseRepository.getConnection().prepareStatement("insert into account(email,password, role) values (?,?,?)");
+            statement.setString(1, account.getEmail());
+            statement.setString(2, account.getPassword());
+            statement.setString(3, account.getRole());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -105,8 +105,13 @@
             </div>
         </div>
         <jsp:include page="layout/footer.jsp" />
-        <jsp:include page="modal/modal_login.jsp" />
-        <jsp:include page="modal/modal_register.jsp" />
+        <%
+            String isLogged = (String) session.getAttribute("isLogged");
+        %>
+        <c:if test="${isLogged == null}">
+            <jsp:include page="modal/modal_login.jsp" />
+            <jsp:include page="modal/modal_register.jsp" />
+        </c:if>
     </div>
     <jsp:include page="layout/script.jsp" />
 </body>
