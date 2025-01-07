@@ -106,7 +106,7 @@ public class ProductController extends HttpServlet  {
 
             case "update":
                 try {
-                    long id = Integer.parseInt(req.getParameter("id"));
+                    int id = Integer.parseInt(req.getParameter("id"));
                     String name_u = req.getParameter("name");
                     String description_u = req.getParameter("description");
                     double price_u = Double.parseDouble(req.getParameter("price"));
@@ -114,7 +114,7 @@ public class ProductController extends HttpServlet  {
                     String image_u = req.getParameter("image");
                     int categoryId_u = Integer.parseInt(req.getParameter("category_id"));
 
-                    Product productUpdate = new Product(id,name_u,description_u,price_u,quantity_u,image_u,categoryId_u);
+                    Product productUpdate = new Product(id, name_u, description_u, price_u, quantity_u, image_u, categoryId_u);
                     productService.update(id,productUpdate);
 
                     resp.sendRedirect("/admin/product?message=updated");
