@@ -1,8 +1,10 @@
 package com.codegym.website_product.controller.user;
 
 import com.codegym.website_product.entity.Account;
+import com.codegym.website_product.entity.Cart;
 import com.codegym.website_product.entity.User;
 import com.codegym.website_product.service.impl.AccountService;
+import com.codegym.website_product.service.impl.CartService;
 import com.codegym.website_product.service.impl.UserService;
 import com.codegym.website_product.validate.UserRegisterValidate;
 import com.google.gson.Gson;
@@ -21,6 +23,8 @@ import java.util.Map;
 public class RegisterController extends HttpServlet {
     private static AccountService accountService = new AccountService();
     private static UserService userService = new UserService();
+    private static CartService cartService = new CartService();
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
@@ -57,6 +61,13 @@ public class RegisterController extends HttpServlet {
             account = accountService.findByEmail(email);
             User user = new User(name, account.getId());
             userService.save(user);
+            user = userService.getByAccountId(account.getId());
+            Cart cart = cartService.findByUserId(user.getId());
+            if (cart == null) {
+                cart = new Cart();
+                cart.setUserId(user.getId());
+                cartService.save(cart);
+            }
             LoginController.login(req, account);
             res.put("status", "success");
         }

@@ -43,6 +43,16 @@ public class UserRepository {
         return null;
     }
 
+    public User findById(int id) {
+        List<User> accounts = getAll();
+        for (User user : accounts) {
+            if (user.getId() == id) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     public void save(User user) {
         try {
             PreparedStatement statement = BaseRepository.getConnection().prepareStatement("insert into users (full_name, date_of_birth, gender, phone_number, address, account_id) values (?,?,?,?,?,?)");
