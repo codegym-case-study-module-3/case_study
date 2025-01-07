@@ -30,6 +30,7 @@ public class RegisterController extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         String name = req.getParameter("name");
+        String con_pass = req.getParameter("confirm_password");
         Gson gson = new Gson();
         Map<String, String> res = new HashMap<>();
         Map<String, String> validator = new HashMap<>();
@@ -51,6 +52,12 @@ public class RegisterController extends HttpServlet {
             validator.put("password", "Mật khẩu phải bao gồm 8 đến 16 ký tự!!!");
         }
 
+        if (con_pass == null || con_pass.isEmpty()) {
+            validator.put("confirm_password", "Không được bỏ trống trường này");
+        } else if (!password.equals(con_pass)) {
+            validator.put("confirm_password", "Yêu cầu phải giống mật khẩu ở trên");
+        }
+
         if (!validator.isEmpty()) {
             String validate = gson.toJson(validator);
             res.put("validate", validate);
@@ -68,7 +75,7 @@ public class RegisterController extends HttpServlet {
                 cart.setUserId(user.getId());
                 cartService.save(cart);
             }
-            LoginController.login(req, account);
+//            LoginController.login(req, account);
             res.put("status", "success");
         }
 

@@ -27,9 +27,9 @@
             type: "post", // Phương thức
             data: $(formId).serialize(), // Gửi tham số (nếu cần)
             success: function (response) {
+                // console.log(response)
                 if (response.status == "validator") {
                     var validator = JSON.parse(response.validate);
-                    console.log(validator);
                     $.each(validator, function (key, value) {
                         var element = 'input';
                         var input = formId + ' ' + element + '[name="' + key + '"]';
@@ -37,7 +37,9 @@
                         $(input + '+span strong').text(value);
                     });
                 } else {
-                    location.reload();
+                    // location.reload();
+                    alert("Đăng ký tài khoản thành công!!!");
+                    window.location.href = "/";
                 }
             },
             error: function (xhr, status, error) {

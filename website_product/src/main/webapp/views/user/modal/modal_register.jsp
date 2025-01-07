@@ -45,6 +45,16 @@
               </span>
             </div>
           </div>
+          <div class="row form-group align-items-center mb-2">
+            <label class="col-11 col-form-label" for="confirm_password">Xác nhận mật khẩu</label>
+            <div class="col-12">
+              <input type="password" class="form-control form-control-sm" placeholder="Nhập lại mật khẩu" id="confirm_password" name="confirm_password"
+                     value="" />
+              <span class="invalid-feedback" role="alert">
+                  <strong></strong>
+              </span>
+            </div>
+          </div>
         </form>
       </div>
       <div class="modal-footer">
