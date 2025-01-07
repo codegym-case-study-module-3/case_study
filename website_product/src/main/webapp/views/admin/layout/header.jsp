@@ -28,7 +28,7 @@ aria-describedby="btnNavbarSearch" />
                 <li>
                     <hr class="dropdown-divider"/>
                 </li>
-                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/login">Logout</a></li>
+                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/logout">Logout</a></li>
             </ul>
         </li>
     </ul>

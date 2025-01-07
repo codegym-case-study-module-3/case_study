@@ -39,10 +39,12 @@
                         </div>
                         <div class="modal-body">
                             <ul class="list-group">
-                                <li class="list-group-item">ID: 24336002207</li>
-                                <li class="list-group-item">Email: abc@gmail.com</li>
-                                <li class="list-group-item">Username: codegymvn</li>
-                                <li class="list-group-item">Role:</li>
+                                <li class="list-group-item">ID: <c:out value="${requestScope.account.id}"/></li>
+                                <li class="list-group-item">Email: <c:out value="${requestScope.account.email}"/></li>
+                                <li class="list-group-item">Role: <span style="color: red; font-style: italic">
+                                    <c:out value="${requestScope.account.role}"/>
+                                </span>
+                                </li>
                             </ul>
                         </div>
                     </div>

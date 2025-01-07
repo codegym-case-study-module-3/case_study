@@ -43,101 +43,30 @@
                             <tr>
                                 <th>ID</th>
                                 <th>EMAIL</th>
-                                <th>USERNAME</th>
                                 <th>ROLE</th>
                                 <th>ACTION</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>24336002332</td>
-                                <td>codegym@gmail.com</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Admin</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modal-detail">Details
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modal-update">Update
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">Delete
-                                    </button>
-                                </td>
+                            <c:forEach var="item" items="${requestScope.listAccounts}">
+                                <tr>
+                                    <td>${item.id}</td>
+                                    <td>${item.email}</td>
+                                    <td>${item.role}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                                data-bs-target="#modal-detail">Details
+                                        </button>
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#modal-update">Update
+                                        </button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#staticBackdrop">Delete
+                                        </button>
+                                    </td>
 
-                            </tr>
-                            <tr>
-                                <td>24336002332</td>
-                                <td>codegym@gmail.com</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Admin</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modal-detail">Details
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modal-update">Update
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">Delete
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>24336002332</td>
-                                <td>codegym@gmail.com</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Admin</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modal-detail">Details
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modal-update">Update
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">Delete
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>24336002332</td>
-                                <td>codegym@gmail.com</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Admin</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modal-detail">Details
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modal-update">Update
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">Delete
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>24336002332</td>
-                                <td>codegym@gmail.com</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>Admin</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modal-detail">Details
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modal-update">Update
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">Delete
-                                    </button>
-                                </td>
-                            </tr>
+                                </tr>
+                            </c:forEach>
 
                             </tbody>
                         </table>
