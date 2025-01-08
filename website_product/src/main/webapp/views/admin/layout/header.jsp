@@ -9,7 +9,11 @@
     </button>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-        <span style="color: white;">Welcome, USERNAME </span>
+        <c:if test="${requestScope.role == 'admin master'}">
+            <small style="color: red; font-style: italic"> ADMIN MASTER </small>
+        </c:if> <c:if test="${requestScope.role != 'admin master'}">
+        <small style="color: red; font-style: italic"> ADMIN </small> </c:if>
+        <%--        <span style="color: white;">ADMIN</span>--%>
         <!-- <div class="input-group">
 <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
 aria-describedby="btnNavbarSearch" />
@@ -23,12 +27,12 @@ aria-describedby="btnNavbarSearch" />
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Settings</a></li>
+                <li><a class="dropdown-item" href="#!">Cài đặt</a></li>
 
                 <li>
                     <hr class="dropdown-divider"/>
                 </li>
-                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/logout">Logout</a></li>
+                <li><a class="dropdown-item" href="${pageContext.request.contextPath}/admin/logout">Đăng xuất</a></li>
             </ul>
         </li>
     </ul>

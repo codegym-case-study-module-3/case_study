@@ -21,21 +21,21 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">QUẢN LÝ ACCOUNT</h1>
+                <h1 class="mt-4">QUẢN LÝ TÀI KHOẢN</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin">TRANG CHỦ</a></li>
-                    <li class="breadcrumb-item active">ACCOUNT</li>
+                    <li class="breadcrumb-item active">TÀI KHOẢN</li>
                 </ol>
 
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-create">
-                    Tạo mới Account
+                    Tạo mới tài khoản
                 </button>
                 <hr/>
 
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        DataTable
+                        DỮ LIỆU TÀI KHOẢN
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -53,48 +53,43 @@
                                     <td>${item.id}</td>
                                     <td>${item.email}</td>
                                     <td>${item.role}</td>
-                                    <c:if test="${role == 'admin'}">
-                                        <td>
-                                            <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                                    data-bs-target="#modal-detail">Details
-                                            </button>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                                    data-bs-target="#modal-update" disabled>Update
-                                            </button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#staticBackdrop" disabled>Delete
-                                            </button>
-                                        </td>
-                                    </c:if>
-                                    <c:if test="${role == 'admin master'}">
-                                        <td>
-                                            <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                                    data-bs-target="#modal-detail">Details
-                                            </button>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                                    data-bs-target="#modal-update">Update
-                                            </button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                    data-bs-target="#staticBackdrop">Delete
-                                            </button>
-                                        </td>
-                                    </c:if>
+                                        <%--                                    <c:if test="${role == 'admin'}">--%>
+                                    <td>
+                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                data-bs-target="#modal-update">Sửa
+                                        </button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#staticBackdrop">Xóa
+                                        </button>
+                                    </td>
+                                        <%--                                    </c:if>--%>
+                                        <%--                                    <c:if test="${role == 'admin master'}">--%>
+                                        <%--                                        <td>--%>
+                                        <%--                                            <button type="button" class="btn btn-info" data-bs-toggle="modal"--%>
+                                        <%--                                                    data-bs-target="#modal-detail">Details--%>
+                                        <%--                                            </button>--%>
+                                        <%--                                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"--%>
+                                        <%--                                                    data-bs-target="#modal-update">Update--%>
+                                        <%--                                            </button>--%>
+                                        <%--                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"--%>
+                                        <%--                                                    data-bs-target="#staticBackdrop">Delete--%>
+                                        <%--                                            </button>--%>
+                                        <%--                                        </td>--%>
+                                        <%--                                    </c:if>--%>
                                 </tr>
                             </c:forEach>
-
                             </tbody>
                         </table>
                     </div>
                 </div>
+                <!-- Modal create -->
+                <jsp:include page="../modal/modal_create_acc.jsp"/>
+                <!-- Modal update-->
+                <jsp:include page="../modal/modal_update_acc.jsp"/>
+                <!--Modal delete-->
             </div>
-            <!-- Modal create -->
-            <jsp:include page="../modal/modal_create_acc.jsp"/>
-            <!-- Modal update-->
-            <jsp:include page="../modal/modal_update_acc.jsp"/>
-            <!--Modal delete-->
             <jsp:include page="../modal/modal_delete_acc.jsp"/>
-            <!--Modal view details-->
-            <jsp:include page="../modal/modal_details_acc.jsp"/>
+
 
         </main>
         <jsp:include page="../layout/footer.jsp"/>

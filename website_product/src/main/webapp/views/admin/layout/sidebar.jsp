@@ -4,16 +4,16 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
-                <div class="sb-sidenav-menu-heading">Features</div>
+                <div class="sb-sidenav-menu-heading">TÍNH NĂNG</div>
                 <a class="nav-link" href="${pageContext.request.contextPath}/admin">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-house-laptop"></i></div>
                     TRANG CHỦ
                 </a>
 
-                <a class="nav-link" href="${pageContext.request.contextPath}/admin/myaccount">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
-                    MY ACCOUNT
-                </a>
+                <%--                <a class="nav-link" href="${pageContext.request.contextPath}/admin/myaccount">--%>
+                <%--                    <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>--%>
+                <%--                    MY ACCOUNT--%>
+                <%--                </a>--%>
 
                 <a class="nav-link" href="${pageContext.request.contextPath}/admin/account">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
@@ -25,7 +25,7 @@
                     QUẢN LÝ USERS
                 </a>
 
-                <a class="nav-link" href="${pageContext.request.contextPath}/admin/products">
+                <a class="nav-link" href="${pageContext.request.contextPath}/admin/product">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>
                     QUẢN LÝ PRODUCT
                 </a>

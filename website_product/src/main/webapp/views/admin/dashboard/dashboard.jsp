@@ -63,7 +63,7 @@
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-back stretched-link"
-                                   href="${pageContext.request.contextPath}/admin/products">Chi tiết</a>
+                                   href="${pageContext.request.contextPath}/admin/product">Chi tiết</a>
                                 <div class="small text-back"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>

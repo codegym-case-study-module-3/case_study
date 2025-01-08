@@ -29,8 +29,7 @@ public class AccountController extends HttpServlet {
         String contextPath = req.getContextPath();
         String action = GetUrlAction.getUrl(uri, contextPath);
         boolean isLogin = SessionManager.isUserLoggedIn(req);
-
-        if (action != null) {
+        if (action != null && isLogin) {
             if (action.isEmpty()) {
                 if (isLogin) {
                     String role = sessionManager.getRole(req);
@@ -70,6 +69,8 @@ public class AccountController extends HttpServlet {
                 SessionManager.removeSession(req);
                 resp.sendRedirect("/admin/login");
             }
+        } else {
+            req.getRequestDispatcher("/views/admin/login/login.jsp").forward(req, resp);
         }
     }
 

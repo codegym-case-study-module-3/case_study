@@ -24,31 +24,31 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">QUẢN LÝ USERS</h1>
+                <h1 class="mt-4">QUẢN LÝ NGƯỜI DÙNG</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin">TRANG CHỦ</a></li>
                     <li class="breadcrumb-item active">USERS</li>
                 </ol>
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-create">
-                    Tạo mới User
+                    Tạo mới người dùng
                 </button>
                 <hr/>
                 <hr/>
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        DataTable
+                        DỮ LIỆU NGƯỜI DÙNG
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Full Name</th>
-                                <th>Day Of Birth</th>
-                                <th>Gender</th>
-                                <th>Address</th>
-                                <th>Number Phone</th>
+                                <th>Họ và tên</th>
+                                <th>Ngày sinh</th>
+                                <th>Giới tính</th>
+                                <th>Địa chỉ</th>
+                                <th>Số điện thoại</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -62,14 +62,11 @@
                                     <td>${item.address}</td>
                                     <td>${item.phone_number}</td>
                                     <td>
-                                        <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                                data-bs-target="#modal-detail">Details
-                                        </button>
-                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                                data-bs-target="#modal-update">Update
+                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                data-bs-target="#modal-update">Sửa
                                         </button>
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#staticBackdrop">Delete
+                                                data-bs-target="#staticBackdrop">Xóa
                                         </button>
                                     </td>
                                 </tr>
@@ -78,15 +75,13 @@
                         </table>
                     </div>
                 </div>
+                <!-- Modal create -->
+                <jsp:include page="../modal/modal_create_acc.jsp"/>
+                <!-- Modal update-->
+                <jsp:include page="../modal/modal_update_acc.jsp"/>
             </div>
-            <!-- Modal create -->
-            <jsp:include page="../modal/modal_create_acc.jsp"/>
-            <!-- Modal update-->
-            <jsp:include page="../modal/modal_update_acc.jsp"/>
             <!--Modal delete-->
             <jsp:include page="../modal/modal_delete_acc.jsp"/>
-            <!--Modal view details-->
-            <jsp:include page="../modal/modal_details_acc.jsp"/>
         </main>
         <jsp:include page="../layout/footer.jsp"/>
     </div>
