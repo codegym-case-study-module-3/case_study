@@ -67,51 +67,10 @@ class="fas fa-search"></i></button>
     </ul>
 </nav>
 <div id="layoutSidenav">
-<%--    <!-- <jsp:include page="../layout/sidebar.jsp" /> -->--%>
+     <jsp:include page="../layout/sidebar.jsp" />
 
     <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-            <div class="sb-sidenav-menu">
-                <div class="nav">
-                    <div class="sb-sidenav-menu-heading">Features</div>
-                    <a class="nav-link" href="../dashboard/dashboard.html">
-                        <div class="sb-nav-link-icon"><i class="fa-solid fa-house-laptop"></i></div>
-                        TRANG CHỦ
-                    </a>
-
-
-          <a class="nav-link" href="../account/account.html">
-            <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
-            QUẢN LÝ ACCOUNT
-          </a>
-
-          <a class="nav-link" href="../account/myaccount.html">
-            <div class="sb-nav-link-icon"><i class="fa-solid fa-gears"></i></div>
-            MY ACCOUNT
-          </a>
-
-          <a class="nav-link" href="../account/account.html">
-            <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
-            QUẢN LÝ ACCOUNT
-          </a>
-
-
-          <a class="nav-link" href="../user/show.html">
-            <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
-            QUẢN LÝ USERS
-          </a>
-
-          <a class="nav-link" href="../product/product.html">
-            <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>
-            QUẢN LÝ PRODUCT
-          </a>
-          <a class="nav-link" href="../orders/orders.html">
-            <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>
-            DANH SÁCH HÓA ĐƠN
-          </a>
-        </div>
-      </div>
-    </nav>
+        <jsp:include page="../layout/sidebar.jsp"/>
   </div>
 
   <div id="layoutSidenav_content">
@@ -119,7 +78,7 @@ class="fas fa-search"></i></button>
       <div class="container-fluid px-4">
         <h1 class="mt-4">QUẢN LÝ PRODUCT</h1>
         <ol class="breadcrumb mb-4">
-          <li class="breadcrumb-item"><a href="../dashboard/dashboard.html">TRANG CHỦ</a></li>
+          <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin">TRANG CHỦ</a></li>
           <li class="breadcrumb-item active">PRODUCT</li>
         </ol>
 
@@ -148,8 +107,9 @@ class="fas fa-search"></i></button>
                                         <th>stock</th>
                                         <th>image</th>
                                         <th>category_id</th>
-                                        <th>created_at</th>
+<%--                                        <th>created_at</th>--%>
                                         <th colspan="2">Chức năng</th>
+
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -162,7 +122,7 @@ class="fas fa-search"></i></button>
                                             <td>${product.quantity}</td>
                                             <td>${product.image}</td>
                                             <td>${product.categoryId}</td>
-                                            <td>${product.created_at}</td>
+<%--                                            <td>${product.created_at}</td>--%>
                                             <td>
                                                 <button class="btn btn-warning"
                                                         onclick="window.location.href='/admin/product?action=update&id=${product.id}'">Sửa</button>
@@ -171,7 +131,9 @@ class="fas fa-search"></i></button>
                                             <td>
 
                                                 <button class="btn btn-danger"
-                                                        onclick="window.location.href='/admin/product?action=delete&id=${product.id}'">
+                                                        data-bs-toggle="modal" data-bs-target="#modalDelete${product.id}"
+<%--                                                        onclick="window.location.href='/admin/product?action=delete&id=${product.id}'"--%>
+                                                >
                                                     Xóa
                                                 </button>
 <%--                                                <button class="btn btn-danger"--%>
@@ -189,7 +151,7 @@ class="fas fa-search"></i></button>
                                                                     aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <p>Bạn có chắc muốn xóa học sinh có tên là ${product.name} và id là ${product.id}?</p>
+                                                            <p>Bạn có chắc muốn xóa học  có tên là ${product.name} và id là ${product.id}?</p>
                                                             <small style="color: red; font-style: italic">Lưu ý hành động này không thể hoàn
                                                                 tác!</small>
                                                         </div>
@@ -234,7 +196,7 @@ class="fas fa-search"></i></button>
                 </div>
             </div>
         </main>
-<%--        <!-- <jsp:include page="../layout/footer.jsp" /> -->--%>
+        <!-- <jsp:include page="../layout/footer.jsp" /> -->
 
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">

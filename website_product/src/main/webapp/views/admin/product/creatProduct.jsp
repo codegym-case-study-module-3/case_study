@@ -35,7 +35,7 @@
         }
     </style>
     <link href="../../../resources/css/admin/styles.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body class="sb-nav-fixed">
@@ -172,6 +172,46 @@
                         <label for="category_id" class="form-label">Danh mục</label>
                         <input type="number" class="form-control" id="category_id" name="category_id" required>
                     </div>
+                    <div class="mb-3">
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-6 form-label">Thông số kỹ thuật</label>
+
+                            <div class="col-sm-4 col-6">
+                                <button id="btn-add-info" type="button" class="btn btn-primary">Thêm thông tin
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="div-info">
+                            <div class="col-12" id="info_1">
+                                <div class="row align-items-center mb-sm-2 mb-4" >
+                                    <div class="col-sm-5 col-12 mb-2 mb-sm-0">
+                                        <input type="text" class="form-control" name="name_info[]"/>
+                                    </div>
+                                    <div class="col-sm-6 col-12">
+                                        <textarea class="form-control" name="text_info[]"></textarea>
+                                    </div>
+                                    <!-- <div class="col-1">
+                                        <button type="button" class="btn btn-danger btn-sm btn-delete-info" data-num="1">Xóa</button>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="num_info" id="num_info" value="1">
+                    </div>
+<%--                    <div class="mb-3">--%>
+<%--                        <label class="form-label"> Thông số kỹ thuật</label>--%>
+
+<%--                        <div class="div-info">--%>
+<%--                            <button id="btn-add-info" type="button" class="btn btn-primary mt-2">Thêm thông tin</button>--%>
+<%--                            <div class="info" >--%>
+
+<%--                                <input type="textarea" class="form-control" name="name_info[]"  />--%>
+<%--                                <input type="textarea" class="form-control" name="text_info[]"  />--%>
+<%--                                <button type="button" class="btn btn-danger btn-sm btn-delete-info" data-num="${num}">Xóa</button>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
 
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
@@ -186,8 +226,6 @@
                 </html>
             </div>
             <!-- Modal -->
-
-
             <!-- Toast thông báo thành công -->
 
         </main>
@@ -203,7 +241,7 @@
 
     </div>
 </div>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="../../../resources/js/scripts.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
@@ -219,71 +257,97 @@
     (function () {
         // Thêm thông tin chi tiết
         $(document).on("click", "#btn-add-info", function () {
-            var num = $(".info").length + 1;
+            var index = $("#num_info").val()
+            var num = parseInt(index) + 1;
             $(".div-info").append(
-                `<div class="info" id="info-${num}">
-                        <input type="textarea" class="form-control" name="name_info[]"  />
-                        <input type="textarea" class="form-control" name="text_info[]"  />
-                        <button type="button" class="btn btn-danger btn-sm btn-delete-info" data-num="${num}">Xóa</button>
-                    </div>`
+                '<div class="col-12" id="info_'+ num +'">' +
+                    '<div class="row align-items-center mb-sm-2 mb-4" id="info-1">' +
+                        '<div class="col-sm-5 col-12 mb-2 mb-sm-0">' +
+                            '<input type="text" class="form-control" name="name_info[]"  />' +
+                        '</div>' +
+                        '<div class="col-sm-6 col-12">' +
+                            '<textarea class="form-control" name="text_info[]"></textarea>' +
+                        '</div>' +
+                        '<div class="col-1">' +
+                            '<button type="button" class="btn btn-danger btn-sm btn-delete-info" data-num="'+ num +'">Xóa</button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
             );
         });
 
         // Xóa thông tin chi tiết
         $(document).on("click", ".btn-delete-info", function () {
             var num = $(this).attr("data-num");
-            $(`#info-${num}`).remove();
+            $('#info_' + num).remove();
         });
+    <%--(function () {--%>
+    <%--    // Thêm thông tin chi tiết--%>
+    <%--    $(document).on("click", "#btn-add-info", function () {--%>
+    <%--        var num = $(".info").length + 1;--%>
+    <%--        $(".div-info").append(--%>
+    <%--            `<div class="info" id="info-${num}">--%>
+    <%--                    <input type="textarea" class="form-control" name="name_info[]"  />--%>
+    <%--                    <input type="textarea" class="form-control" name="text_info[]"  />--%>
+    <%--                    <button type="button" class="btn btn-danger btn-sm btn-delete-info" data-num="${num}">Xóa</button>--%>
+    <%--                </div>`--%>
+    <%--        );--%>
+    <%--    });--%>
 
-        // Sửa thông tin chi tiết
-        $(document).on("click", ".btn-edit-info", function () {
-            var num = $(this).attr("data-num");
-            var row = $(`#info-${num}`);
-            var inputs = row.find("input");
+        <%--// Xóa thông tin chi tiết--%>
+        <%--$(document).on("click", ".btn-delete-info", function () {--%>
+        <%--    var num = $(this).attr("data-num");--%>
+        <%--    $(`#info-${num}`).remove();--%>
+        <%--});--%>
 
-            // Kiểm tra trạng thái chỉnh sửa
-            if ($(this).text() === "Sửa") {
-                inputs.prop("disabled", false); // Bật chế độ chỉnh sửa
-                $(this).removeClass("btn-warning").addClass("btn-success").text("Lưu");
-            } else {
-                inputs.prop("disabled", true); // Tắt chế độ chỉnh sửa
-                $(this).removeClass("btn-success").addClass("btn-warning").text("Sửa");
-            }
-        });
+        <%--// Sửa thông tin chi tiết--%>
+        <%--$(document).on("click", ".btn-edit-info", function () {--%>
+        <%--    var num = $(this).attr("data-num");--%>
+        <%--    var row = $(`#info-${num}`);--%>
+        <%--    var inputs = row.find("input");--%>
+
+        <%--    // Kiểm tra trạng thái chỉnh sửa--%>
+        <%--    if ($(this).text() === "Sửa") {--%>
+        <%--        inputs.prop("disabled", false); // Bật chế độ chỉnh sửa--%>
+        <%--        $(this).removeClass("btn-warning").addClass("btn-success").text("Lưu");--%>
+        <%--    } else {--%>
+        <%--        inputs.prop("disabled", true); // Tắt chế độ chỉnh sửa--%>
+        <%--        $(this).removeClass("btn-success").addClass("btn-warning").text("Sửa");--%>
+        <%--    }--%>
+        <%--});--%>
     })();
 </script>
 <script>
-    document.getElementById("image").addEventListener("change", function (event) {
-        const file = event.target.files[0]; // Lấy file người dùng chọn
-        const previewImage = document.getElementById("previewImage");
-
-        if (file) {
-            const reader = new FileReader();
-
-            // Khi file được load, set src cho thẻ <img>
-            reader.onload = function (e) {
-                previewImage.src = e.target.result;
-                previewImage.style.display = "block"; // Hiển thị ảnh
-            };
-
-            reader.readAsDataURL(file); // Đọc file dưới dạng URL
-        } else {
-            previewImage.src = "#";
-            previewImage.style.display = "none"; // Ẩn ảnh nếu không chọn file
-        }
-    });
-</script>
-<script>
-    document.getElementById("submit-btn").addEventListener("click", function () {
-        // Hiển thị toast thông báo thành công
-        const toast = new bootstrap.Toast(document.getElementById("successToast")); // Lấy toast theo ID
-        toast.show();
-
-        // Sau 2 giây, chuyển hướng về trang product.html
-        setTimeout(function () {
-            window.location.href = "../product/product.html";
-        }, 2000);
-    });
+    // document.getElementById("image").addEventListener("change", function (event) {
+    //     const file = event.target.files[0]; // Lấy file người dùng chọn
+    //     const previewImage = document.getElementById("previewImage");
+    //
+    //     if (file) {
+    //         const reader = new FileReader();
+    //
+    //         // Khi file được load, set src cho thẻ <img>
+    //         reader.onload = function (e) {
+    //             previewImage.src = e.target.result;
+    //             previewImage.style.display = "block"; // Hiển thị ảnh
+    //         };
+    //
+    //         reader.readAsDataURL(file); // Đọc file dưới dạng URL
+    //     } else {
+    //         previewImage.src = "#";
+    //         previewImage.style.display = "none"; // Ẩn ảnh nếu không chọn file
+    //     }
+    // });
+    //
+    // document.getElementById("submit-btn").addEventListener("click", function () {
+    //     // Hiển thị toast thông báo thành công
+    //     const toast = new bootstrap.Toast(document.getElementById("successToast")); // Lấy toast theo ID
+    //     toast.show();
+    //
+    //     // Sau 2 giây, chuyển hướng về trang product.html
+    //     setTimeout(function () {
+    //         window.location.href = "../product/product.html";
+    //     }, 2000);
+    // });
 </script>
 
 </body>

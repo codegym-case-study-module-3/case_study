@@ -25,11 +25,11 @@
                     QUẢN LÝ USERS
                 </a>
 
-                <a class="nav-link" href="${pageContext.request.contextPath}/admin/products">
+                <a class="nav-link" href="${pageContext.request.contextPath}/admin/product">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>
                     QUẢN LÝ PRODUCT
                 </a>
-                <a class="nav-link" href="${pageContext.request.contextPath}/admin/bill">
+                <a class="nav-link" href="${pageContext.request.contextPath}/admin/order">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>
                     QUẢN LÝ HÓA ĐƠN
                 </a>
