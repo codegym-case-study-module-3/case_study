@@ -53,18 +53,32 @@
                                     <td>${item.id}</td>
                                     <td>${item.email}</td>
                                     <td>${item.role}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                                data-bs-target="#modal-detail">Details
-                                        </button>
-                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                                data-bs-target="#modal-update">Update
-                                        </button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#staticBackdrop">Delete
-                                        </button>
-                                    </td>
-
+                                    <c:if test="${role == 'admin'}">
+                                        <td>
+                                            <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-detail">Details
+                                            </button>
+                                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-update" disabled>Update
+                                            </button>
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                    data-bs-target="#staticBackdrop" disabled>Delete
+                                            </button>
+                                        </td>
+                                    </c:if>
+                                    <c:if test="${role == 'admin master'}">
+                                        <td>
+                                            <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-detail">Details
+                                            </button>
+                                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                                    data-bs-target="#modal-update">Update
+                                            </button>
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                    data-bs-target="#staticBackdrop">Delete
+                                            </button>
+                                        </td>
+                                    </c:if>
                                 </tr>
                             </c:forEach>
 

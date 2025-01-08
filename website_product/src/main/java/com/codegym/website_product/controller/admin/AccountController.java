@@ -42,12 +42,16 @@ public class AccountController extends HttpServlet {
             }
             if (action.equals("account")) {
                 List<Account> listAccounts = accountService.getAll();
+                String role = sessionManager.getRole(req);
+                req.setAttribute("role", role);
                 req.setAttribute("listAccounts", listAccounts);
                 req.getRequestDispatcher("/views/admin/account/account.jsp").forward(req, resp);
             }
             if (action.equals("myaccount")) {
                 String email = sessionManager.getEmail(req);
                 Account account = accountService.findByEmail(email);
+                String role = sessionManager.getRole(req);
+                req.setAttribute("role", role);
                 req.setAttribute("account", account);
                 req.getRequestDispatcher("/views/admin/account/myaccount.jsp").forward(req, resp);
             }
