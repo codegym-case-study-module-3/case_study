@@ -122,7 +122,6 @@ public class ProductRepository {
             statement.setInt(6, product.getCategoryId());
             statement.setString(7, product.getCreated_at());
             statement.setInt(8, id);
-
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

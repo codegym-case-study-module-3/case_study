@@ -1,7 +1,7 @@
 package com.codegym.website_product.entity;
 
 public class Product {
-    private int id;
+    private long id;
     private String name;
     private String description;
     private double price;
@@ -10,6 +10,16 @@ public class Product {
     private int categoryId;
     private String created_at;
 //    Product(id,name_u,description_u,price_u,quantity_u,image_u,categoryId_u)
+    public Product( long id,String name_u, String description_u, double price_u, int quantity_u, String image_u, int categoryId_u) {
+        this.id = id;
+        this.name = name_u;
+        this.description = description_u;
+        this.price = price_u;
+        this.quantity = quantity_u;
+        this.image = image_u;
+        this.categoryId = categoryId_u;
+
+}
     public Product(String name, String description, double price, int quantity, String image, int category_id) {
         this.name = name;
         this.description = description;
@@ -41,7 +51,7 @@ public class Product {
     public Product(int id, String name, int description, int price, int stock, String image, String categoryId, String createdAt) {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
