@@ -63,7 +63,7 @@
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-back stretched-link"
-                                   href="${pageContext.request.contextPath}/admin/products">Chi tiết</a>
+                                   href="${pageContext.request.contextPath}/admin/product">Chi tiết</a>
                                 <div class="small text-back"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -85,12 +85,13 @@
                         <div class="card text-bg-light text-back mb-4">
                             <div class="card-body">
                                 <i class="fa-solid fa-gears"></i>
-                                MY ACCOUNT <small style="color: red; font-style: italic"> (ADMIN MASTER OR
-                                ADMIN)</small>
+                                MY ACCOUNT <small style="color: red; font-style: italic">
+                                (<c:out value="${requestScope.role}"/>)
+                            </small>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-back stretched-link"
-                                   href="${pageContext.request.contextPath}/admin/account">Chi tiết</a>
+                                   href="${pageContext.request.contextPath}/admin/myaccount">Chi tiết</a>
                                 <div class="small text-back"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -99,8 +100,12 @@
                         <div class="card text-bg-light text-back mb-4">
                             <div class="card-body">
                                 <i class="fa-solid fa-pen"></i>
-                                ĐĂNG KÍ TÀI KHOẢN ADMIN <small style="color: red; font-style: italic"> (Bạn được quyền
-                                đăng kí tài khoản admin)</small>
+                                ĐĂNG KÍ TÀI KHOẢN ADMIN
+                                <c:if test="${requestScope.role == 'admin master'}"> <small
+                                        style="color: red; font-style: italic"> (Bạn được quyền đăng kí tài khoản
+                                    admin) </small> </c:if> <c:if test="${requestScope.role != 'admin master'}">
+                                <small style="color: red; font-style: italic"> (Bạn không được quyền đăng kí tài khoản
+                                    admin) </small> </c:if>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-back stretched-link"

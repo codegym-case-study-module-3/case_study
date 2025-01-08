@@ -153,7 +153,7 @@ public class ProductRepository {
                 String name = resultSet.getString("name");
                 String description = resultSet.getString("description");
                 double price = resultSet.getDouble("price");
-                int quantity = resultSet.getInt("quantity");
+                int quantity = resultSet.getInt("stock");
                 String image = resultSet.getString("image");
                 String created_at = resultSet.getString("created_at");
                 products.add(new Product(id, name, description, price, quantity, image, categoryId, created_at));

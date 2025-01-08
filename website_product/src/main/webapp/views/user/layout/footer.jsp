@@ -100,19 +100,19 @@
             <div class="footer-content">
               <ul class="list-ship">
                 <li><img data-sizes="auto" class="lazyautosizes lazyloaded"
-                         src="resources/img/img1.png"
+                         src="${pageContext.request.contextPath}/resources/img/img1.png"
                          data-src="resources/img/img1.png"
                          alt="Hình thức vận chuyển 1" sizes="59px"></li>
                 <li><img data-sizes="auto" class="lazyautosizes lazyloaded"
-                         src="resources/img/img2.png"
+                         src="${pageContext.request.contextPath}/resources/img/img2.png"
                          data-src="resources/img/img2.png"
                          alt="Hình thức vận chuyển 2" sizes="59px"></li>
                 <li><img data-sizes="auto" class="lazyautosizes lazyloaded"
-                         src="resources/img/img3.png"
+                         src="${pageContext.request.contextPath}/resources/img/img3.png"
                          data-src="resources/img/img3.png"
                          alt="Hình thức vận chuyển 3" sizes="59px"></li>
                 <li><img data-sizes="auto" class="lazyautosizes lazyloaded"
-                         src="resources/img/img4.png"
+                         src="${pageContext.request.contextPath}/resources/img/img4.png"
                          data-src="resources/img/img4.png"
                          alt="Hình thức vận chuyển 4" sizes="59px"></li>
               </ul>

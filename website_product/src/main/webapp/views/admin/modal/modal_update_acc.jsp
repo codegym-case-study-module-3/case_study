@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: LE XUAN NGOC
@@ -18,23 +19,25 @@
                 <form>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input disabled type="email" class="form-control" id="email" name="email" required>
+                        <input disabled type="email" class="form-control" id="email" name="email" required
+                               value=<c:out value="${requestScope.account.email}"/>>
                     </div>
-                    <div class="mb-3">
+                    <div class=" mb-3">
                         <%--@declare id="password"--%><label for="password" class="form-label">Mật khẩu cũ</label>
                         <input disabled type="password" class="form-control" id="password-old"
-                               name="password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Mật khẩu mới</label>
-                        <input disabled type="password" class="form-control" id="password-new"
-                               name="password" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Xác nhận mật khẩu</label>
-                        <input disabled type="password" class="form-control" id="password-new"
-                               name="password" required>
-                    </div>
+                               name="password" required value=
+                               <%--                        <c:out value="${requestScope.account.email}"/>>--%>
+                                       </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mật khẩu mới</label>
+                            <input type="password" class="form-control" id="password-new1"
+                                   name="password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Xác nhận mật khẩu</label>
+                            <input type="password" class="form-control" id="password-new2"
+                                   name="password">
+                        </div>
                 </form>
             </div>
             <div class="modal-footer">
