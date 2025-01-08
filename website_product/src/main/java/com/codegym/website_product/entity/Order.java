@@ -8,9 +8,16 @@ public class Order {
     private int status;
     private double price;
     private String createdAt;
-
+    private String fullName;
     public Order() {}
-
+    public Order(int id, int userId, String fullName, int status, Double price, String createdAt) {
+        this.id = id;
+        this.userId = userId;
+        this.fullName = fullName;
+        this.status = status;
+        this.price = price;
+        this.createdAt = createdAt;
+    }
     public Order(int id, int userId, int status, double price, String createdAt) {
         this.id = id;
         this.userId = userId;
@@ -65,6 +72,14 @@ public class Order {
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
+    public String getFullName() {
+        return fullName;
+    }
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
