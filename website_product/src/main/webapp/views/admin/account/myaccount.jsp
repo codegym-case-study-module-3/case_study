@@ -25,7 +25,7 @@
                 <h1 class="mt-4">QUẢN LÝ TÀI KHOẢN</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="../dashboard/dashboard.jsp">TRANG CHỦ</a></li>
-                    <li class="breadcrumb-item active">TÀI KHOẢN</li>
+                    <li class="breadcrumb-item active">TÀI KHOẢN CỦA BẠN</li>
                 </ol>
 
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-update">

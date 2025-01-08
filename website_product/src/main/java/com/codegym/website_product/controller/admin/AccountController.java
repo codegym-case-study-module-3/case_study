@@ -69,6 +69,9 @@ public class AccountController extends HttpServlet {
                 SessionManager.removeSession(req);
                 resp.sendRedirect("/admin/login");
             }
+            if (action.equals("product")) {
+                req.getRequestDispatcher("/views/admin/product/product.jsp").forward(req, resp);
+            }
         } else {
             req.getRequestDispatcher("/views/admin/login/login.jsp").forward(req, resp);
         }
@@ -81,7 +84,8 @@ public class AccountController extends HttpServlet {
         String uri = req.getRequestURI();
         String contextPath = req.getContextPath();
         String action = GetUrlAction.getUrl(uri, contextPath);
-
+        boolean isLogin = SessionManager.isUserLoggedIn(req);
+        String rolAS = sessionManager.getRole(req);
         if (action != null) {
             if (action.equals("login")) {
                 String email = req.getParameter("email");
@@ -100,6 +104,13 @@ public class AccountController extends HttpServlet {
                     }
                 }
             }
+        }
+        if (action != null && isLogin) {
+            if (action.equals("account/create") && role.equals("admin master")) {
+                String email = req.getParameter("email");
+
+            }
+
         }
 //            case "register":
 //                String emailRegister = req.getParameter("email");

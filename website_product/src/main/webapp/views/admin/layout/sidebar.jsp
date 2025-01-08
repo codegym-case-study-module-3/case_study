@@ -10,10 +10,10 @@
                     TRANG CHỦ
                 </a>
 
-                <%--                <a class="nav-link" href="${pageContext.request.contextPath}/admin/myaccount">--%>
-                <%--                    <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>--%>
-                <%--                    MY ACCOUNT--%>
-                <%--                </a>--%>
+                <a class="nav-link" href="${pageContext.request.contextPath}/admin/myaccount">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
+                    TÀI KHOẢN CỦA BẠN
+                </a>
 
                 <a class="nav-link" href="${pageContext.request.contextPath}/admin/account">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-user"></i></div>
