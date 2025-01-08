@@ -21,27 +21,29 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">MY ACCOUNT</h1>
+                <h1 class="mt-4">QUẢN LÝ TÀI KHOẢN</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="../dashboard/dashboard.jsp">TRANG CHỦ</a></li>
-                    <li class="breadcrumb-item active">MY ACCOUNT</li>
+                    <li class="breadcrumb-item active">TÀI KHOẢN CỦA BẠN</li>
                 </ol>
 
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-update">
-                    Cập nhật Account
+                    Cập nhật tài khoản
                 </button>
                 <hr/>
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">THÔNG TIN CHI TIẾT ACCOUNT:</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">THÔNG TIN CHI TIẾT TÀI KHOẢN:</h1>
                         </div>
                         <div class="modal-body">
                             <ul class="list-group">
-                                <li class="list-group-item">ID: 24336002207</li>
-                                <li class="list-group-item">Email: abc@gmail.com</li>
-                                <li class="list-group-item">Username: codegymvn</li>
-                                <li class="list-group-item">Role:</li>
+                                <li class="list-group-item">ID: <c:out value="${requestScope.account.id}"/></li>
+                                <li class="list-group-item">Email: <c:out value="${requestScope.account.email}"/></li>
+                                <li class="list-group-item">Role: <span style="color: red; font-style: italic">
+                                    <c:out value="${requestScope.account.role}"/>
+                                </span>
+                                </li>
                             </ul>
                         </div>
                     </div>

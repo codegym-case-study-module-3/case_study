@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,144 +24,64 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">QUẢN LÝ USERS</h1>
+                <h1 class="mt-4">QUẢN LÝ NGƯỜI DÙNG</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin">TRANG CHỦ</a></li>
                     <li class="breadcrumb-item active">USERS</li>
                 </ol>
                 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-create">
-                    Tạo mới User
+                    Tạo mới người dùng
                 </button>
                 <hr/>
                 <hr/>
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        DataTable
+                        DỮ LIỆU NGƯỜI DÙNG
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Full Name</th>
-                                <th>Day Of Birth</th>
-                                <th>Gender</th>
-                                <th>Address</th>
-                                <th>Number Phone</th>
+                                <th>Họ và tên</th>
+                                <th>Ngày sinh</th>
+                                <th>Giới tính</th>
+                                <th>Địa chỉ</th>
+                                <th>Số điện thoại</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>24336002323</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>22/07/1998</td>
-                                <td>male</td>
-                                <td>425 Nơ Trang Long, P13, Bình Thạnh, TP.HCM</td>
-                                <td>0359523030</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modal-detail">Details
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modal-update">Update
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">Delete
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>24336002323</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>22/07/1998</td>
-                                <td>male</td>
-                                <td>425 Nơ Trang Long, P13, Bình Thạnh, TP.HCM</td>
-                                <td>0359523030</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modal-detail">Details
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modal-update">Update
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">Delete
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>24336002323</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>22/07/1998</td>
-                                <td>male</td>
-                                <td>425 Nơ Trang Long, P13, Bình Thạnh, TP.HCM</td>
-                                <td>0359523030</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modal-detail">Details
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modal-update">Update
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">Delete
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>24336002323</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>22/07/1998</td>
-                                <td>male</td>
-                                <td>425 Nơ Trang Long, P13, Bình Thạnh, TP.HCM</td>
-                                <td>0359523030</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modal-detail">Details
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modal-update">Update
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">Delete
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>24336002323</td>
-                                <td>Nguyễn Văn A</td>
-                                <td>22/07/1998</td>
-                                <td>male</td>
-                                <td>425 Nơ Trang Long, P13, Bình Thạnh, TP.HCM</td>
-                                <td>0359523030</td>
-                                <td>
-                                    <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modal-detail">Details
-                                    </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                                            data-bs-target="#modal-update">Update
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#staticBackdrop">Delete
-                                    </button>
-                                </td>
-                            </tr>
-
+                            <c:forEach var="item" items="${requestScope.listUsers}">
+                                <tr>
+                                    <td>${item.id}</td>
+                                    <td>${item.fullName}</td>
+                                    <td>${item.dob}</td>
+                                    <td>${item.gender}</td>
+                                    <td>${item.address}</td>
+                                    <td>${item.phone_number}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                data-bs-target="#modal-update">Sửa
+                                        </button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#staticBackdrop">Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>
                 </div>
+                <!-- Modal create -->
+                <jsp:include page="../modal/modal_create_acc.jsp"/>
+                <!-- Modal update-->
+                <jsp:include page="../modal/modal_update_acc.jsp"/>
             </div>
-            <!-- Modal create -->
-            <jsp:include page="../modal/modal_create_acc.jsp"/>
-            <!-- Modal update-->
-            <jsp:include page="../modal/modal_update_acc.jsp"/>
             <!--Modal delete-->
             <jsp:include page="../modal/modal_delete_acc.jsp"/>
-            <!--Modal view details-->
-            <jsp:include page="../modal/modal_details_acc.jsp"/>
         </main>
         <jsp:include page="../layout/footer.jsp"/>
     </div>
