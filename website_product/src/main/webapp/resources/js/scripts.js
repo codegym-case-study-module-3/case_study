@@ -26,7 +26,6 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 
-
 const exampleModal = document.getElementById('exampleModal')
 if (exampleModal) {
 //   exampleModal.addEventListener('show.bs.modal', event => {
@@ -44,4 +43,13 @@ if (exampleModal) {
 //     modalTitle.textContent = `New message to ${recipient}`
 //     modalBodyInput.value = recipient
 //   })
+}
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+
+if (toastTrigger) {
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    toastTrigger.addEventListener('click', () => {
+        toastBootstrap.show()
+    })
 }
