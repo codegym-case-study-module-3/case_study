@@ -21,8 +21,8 @@ public class AccountService implements IAccount {
     }
 
     @Override
-    public void update(long id, Account s) {
-
+    public void update(long id, Account account) {
+        accountRepository.updateAccount(account);
     }
 
     @Override
