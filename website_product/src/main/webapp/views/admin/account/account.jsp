@@ -14,6 +14,7 @@
 </head>
 
 <body class="sb-nav-fixed">
+
 <jsp:include page="../layout/header.jsp"/>
 
 <div id="layoutSidenav">
@@ -137,6 +138,10 @@
     setTimeout(function () {
         document.getElementById("message").remove();
     }, 3000)
+
+    function showAlert(${message}) {
+        alert(${message});
+    }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz4fnFO9gybF6kV5O6Nf1XbFjwRz2Kl68uGxAtGvX7SeCmbkNQvd53u1T2"

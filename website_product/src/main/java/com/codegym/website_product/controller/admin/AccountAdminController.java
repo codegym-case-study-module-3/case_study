@@ -68,7 +68,7 @@ public class AccountAdminController extends HttpServlet {
                             req.setAttribute("message", "Thêm mới thành công");
                         }
                     }
-                    
+
                     List<Account> listAccounts = accountService.getAll();
                     List<Account> adminAccounts = listAccounts.stream().filter(account -> "admin".equals(account.getRole())).collect(Collectors.toList());
                     req.setAttribute("role", role);
