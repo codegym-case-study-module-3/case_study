@@ -2,6 +2,7 @@ package com.codegym.website_product.service.impl;
 
 import com.codegym.website_product.entity.Account;
 import com.codegym.website_product.entity.Product;
+import com.codegym.website_product.entity.ProductSpecification;
 import com.codegym.website_product.repository.ProductRepository;
 import com.codegym.website_product.service.IProduct;
 
@@ -10,7 +11,19 @@ import java.util.List;
 public class ProductService implements IProduct {
 
     private static ProductRepository productRepository = new ProductRepository();
-
+    @Override
+    public void saveWithSpecifications(Product product, List<ProductSpecification> specifications) {
+        // Gọi logic xử lý ở ProductRepository
+        productRepository.save(product, specifications);
+    }
+    public void update(int id, Product product, List<ProductSpecification> specifications1) {
+        try {
+            productRepository.update(id, product); // Cập nhật sản phẩm trong bảng `products`
+            productRepository.updateSpecifications(id, specifications1); // Cập nhật thông số kỹ thuật trong bảng `productspecification`
+        } catch (Exception e) {
+            throw new RuntimeException("Error updating product and specifications", e);
+        }
+    }
     @Override
     public List<Product> getAll() {
         List<Product> products = productRepository.getAll();
@@ -18,14 +31,19 @@ public class ProductService implements IProduct {
     }
 
     @Override
-    public Account save(Product p) {
-        productRepository.save(p);
+   public Account save(Product p) {
+//       productRepository.save(p);
+//    public Account save(Product p) {
+//       productRepository.save(p);
+//      return null;
         return null;
     }
 
-    @Override
-    public void update(int id, Product p) {
-    }
+
+
+//    @Override
+//    public void update(int id, Product p) {
+//    }
 
     @Override
     public void remove(int id) {

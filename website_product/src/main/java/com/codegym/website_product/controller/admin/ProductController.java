@@ -2,6 +2,8 @@ package com.codegym.website_product.controller.admin;
 
 
 import com.codegym.website_product.entity.Product;
+import com.codegym.website_product.entity.ProductSpecification;
+import com.codegym.website_product.repository.ProductRepository;
 import com.codegym.website_product.service.IProduct;
 import com.codegym.website_product.service.impl.ProductService;
 import com.codegym.website_product.utils.SessionManager;
@@ -12,7 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "productController", urlPatterns = "/admin/product")
@@ -90,17 +94,48 @@ public class ProductController extends HttpServlet {
         }
         switch (action) {
             case "create":
+                // Lấy thông tin sản phẩm
                 String name = req.getParameter("name");
                 String description = req.getParameter("description");
-                double price = Double.parseDouble((req.getParameter("price")));
-                int quantity = Integer.parseInt(req.getParameter("stock")); // Đổi từ stock sang quantity
-                String image = req.getParameter("image");
-                int categoryId = Integer.parseInt(req.getParameter("category_id")); // Đổi từ category_id sang categoryId
-//                String createdAt = req.getParameter("created_at");
+                double price = Double.parseDouble(req.getParameter("price"));
+                int quantity = Integer.parseInt(req.getParameter("stock"));
+                String image = "resources/images/" +req.getParameter("image"); // Thêm xử lý upload file ở đây
+                int categoryId = Integer.parseInt(req.getParameter("category_id"));
+
+                // Lấy danh sách thông số kỹ thuật
+                String[] nameInfos = req.getParameterValues("name_info[]");
+                String[] textInfos = req.getParameterValues("text_info[]");
+
+                // Tạo Product
                 Product product = new Product(name, description, price, quantity, image, categoryId);
-                productService.save(product);
+
+                // Tạo danh sách ProductSpecification
+                List<ProductSpecification> specifications = new ArrayList<>();
+                if (nameInfos != null && textInfos != null) {
+                    for (int i = 0; i < nameInfos.length; i++) {
+                        specifications.add(new ProductSpecification(nameInfos[i], textInfos[i]));
+                    }
+                }
+
+                // Lưu sản phẩm và các thông số kỹ thuật
+                ProductRepository productRepo = new ProductRepository();
+                productRepo.save(product, specifications);
+
+                // Chuyển hướng
                 resp.sendRedirect("/admin/product?message=created");
                 break;
+
+//                String name = req.getParameter("name");
+//                String description = req.getParameter("description");
+//                double price = Double.parseDouble((req.getParameter("price")));
+//                int quantity = Integer.parseInt(req.getParameter("stock")); // Đổi từ stock sang quantity
+//                String image = req.getParameter("image");
+//                int categoryId = Integer.parseInt(req.getParameter("category_id")); // Đổi từ category_id sang categoryId
+////                String createdAt = req.getParameter("created_at");
+//                Product product = new Product(name, description, price, quantity, image, categoryId);
+//                productService.save(product);
+//                resp.sendRedirect("/admin/product?message=created");
+//
 //            case "update":
 //                int id = Integer.parseInt(req.getParameter("id"));
 //                String name_u = req.getParameter("name");
@@ -117,19 +152,49 @@ public class ProductController extends HttpServlet {
 
             case "update":
                 try {
-
-                    long id = Long.parseLong(req.getParameter("id"));
+                    int id = Integer.parseInt(req.getParameter("id"));
                     String name_u = req.getParameter("name");
                     String description_u = req.getParameter("description");
                     double price_u = Double.parseDouble(req.getParameter("price"));
                     int quantity_u = Integer.parseInt(req.getParameter("stock"));
-                    String image_u = req.getParameter("image");
+                    String image_u = "resources/images/" +req.getParameter("image");
                     int categoryId_u = Integer.parseInt(req.getParameter("category_id"));
-
+                    // Tạo đối tượng Product từ dữ liệu đã nhập
                     Product productUpdate = new Product(id, name_u, description_u, price_u, quantity_u, image_u, categoryId_u);
-                    productService.update(id, productUpdate);
 
+                    productService.update(id, productUpdate);
+                    // Lấy thông tin thông số kỹ thuật từ form
+                    String[] nameInfoArray = req.getParameterValues("name_info[]");
+                    String[] textInfoArray = req.getParameterValues("text_info[]");
+
+                    // Tạo danh sách ProductSpecification
+                    List<ProductSpecification> specifications1 = new ArrayList<>();
+                    if (nameInfoArray != null && textInfoArray != null) {
+                        for (int i = 0; i < nameInfoArray.length; i++) {
+                            String nameInfo = nameInfoArray[i];
+                            String textInfo = textInfoArray[i];
+                            ProductSpecification spec = new ProductSpecification(nameInfo, textInfo);
+                            specifications1.add(spec);
+                        }
+                    }
+
+                    // Gọi service để cập nhật sản phẩm và thông số kỹ thuật
+                    productService.update(id, productUpdate, specifications1);
+
+                    // Redirect nếu thành công
                     resp.sendRedirect("/admin/product?message=updated");
+//                    long id = Long.parseLong(req.getParameter("id"));
+//                    String name_u = req.getParameter("name");
+//                    String description_u = req.getParameter("description");
+//                    double price_u = Double.parseDouble(req.getParameter("price"));
+//                    int quantity_u = Integer.parseInt(req.getParameter("stock"));
+//                    String image_u = req.getParameter("image");
+//                    int categoryId_u = Integer.parseInt(req.getParameter("category_id"));
+//
+//                    Product productUpdate = new Product(id, name_u, description_u, price_u, quantity_u, image_u, categoryId_u);
+//                    productService.update(id,productUpdate);
+//
+//                    resp.sendRedirect("/admin/product?message=updated");
                 } catch (NumberFormatException | NullPointerException e) {
                     req.setAttribute("error", "Lỗi dữ liệu nhập vào!");
                     req.getRequestDispatcher("/views/admin/product/update.jsp").forward(req, resp);

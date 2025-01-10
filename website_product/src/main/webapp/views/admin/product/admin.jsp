@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en">
 
 <head>
@@ -40,15 +41,28 @@
                 >Thêm mới
                 </button>
                 <hr/>
+
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        DataTable
+                        Danh sách sản phẩm
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên</th>
+<%--                                <th>description</th>--%>
+                                <th>price</th>
+                                <th>stock</th>
+                                <th>image</th>
+                                <th>category_id</th>
+                                <%--                                        <th>created_at</th>--%>
+                                <th colspan="2">Chức năng</th>
+                            </tr>
                             </thead>
+
                             <div>
 
 
@@ -123,28 +137,108 @@
                                                                 nhận
                                                             </button>
                                                         </div>
-                                                    </div>
+
+                            <tbody>
+                            <c:forEach items="${products}" var="product" varStatus="temp">
+                                <tr>
+                                    <td>${temp.count}</td>
+                                    <td>${product.name}</td>
+<%--                                    <td>${product.description}</td>--%>
+<%--                                    <td>${product.price}</td>--%>
+                                    <td>
+                                        <fmt:formatNumber value="${product.price}" pattern="0.0##############" />VNĐ
+                                    </td>
+                                    <td>${product.quantity}</td>
+<%--                                    <td>${product.image}</td>--%>
+                                    <td>
+                                        <img src="${pageContext.request.contextPath}/${product.image}" alt="${product.name}" style="width: 100px; height: auto;">
+                                    </td>
+                                    <td>${product.categoryName}</td>
+<%--                                    <td>${product.categoryId}</td>--%>
+                                        <%--                                            <td>${product.created_at}</td>--%>
+                                    <td>
+                                        <button class="btn btn-warning"
+                                                onclick="window.location.href='/admin/product?action=update&id=${product.id}'">
+                                            Sửa
+                                        </button>
+
+                                        <button class="btn btn-danger"
+                                                data-bs-toggle="modal" data-bs-target="#modalDelete${product.id}"
+                                            <%--                                                        onclick="window.location.href='/admin/product?action=delete&id=${product.id}'"--%>
+                                        >
+                                            Xóa
+                                        </button>
+                                            <%--                                                <button class="btn btn-danger"--%>
+                                            <%--                                                        data-bs-toggle="modal" data-bs-target="#modalDelete${product.id}">--%>
+                                            <%--                                                    Xóa--%>
+                                            <%--                                                </button>--%>
+                                    </td>
+                                    <div class="modal fade" id="modalDelete${product.id}" tabindex="-1"
+                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Xóa </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Bạn có chắc muốn xóa học có tên là ${product.name} và id
+                                                        là ${product.id}?</p>
+                                                    <small style="color: red; font-style: italic">Lưu ý hành động này
+                                                        không thể hoàn
+                                                        tác!</small>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Đóng
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger"
+                                                            onclick="window.location.href='/admin/product?action=delete&id=${product.id}'">
+                                                        Xác
+                                                        nhận
+                                                    </button>
                                                 </div>
                                             </div>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                                <c:if test="${message != null}">
-                                    <div class="alert alert-success" role="alert" id="message">
-                                            ${message}
+                                        </div>
                                     </div>
-                                </c:if>
-                            </div>
-
+                                </tr>
+                            </c:forEach>
+                            </tbody>
                         </table>
+                        <c:if test="${message != null}">
+                            <div class="alert alert-success" role="alert" id="message">
+                                    ${message}
+                            </div>
+                        </c:if>
                     </div>
+
                 </div>
             </div>
-
         </main>
-        <%--        <jsp:include page="../layout/footer.jsp"/>--%>
+        <!-- <jsp:include page="../layout/footer.jsp" /> -->
     </div>
+    <!-- Modal -->
+
+
+    <!-- Toast thông báo thành công -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Thông báo</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Tạo mới account thành công!
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+</div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
