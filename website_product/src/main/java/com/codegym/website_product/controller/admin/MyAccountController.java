@@ -44,6 +44,8 @@ public class MyAccountController extends HttpServlet {
             account.setPassword(password);
             accountService.update(account.getId(), account);
             resp.sendRedirect("/admin/myaccount");
+        } else {
+            req.getRequestDispatcher("/views/admin/login/login.jsp").forward(req, resp);
         }
 
     }
