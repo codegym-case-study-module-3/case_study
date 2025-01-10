@@ -14,6 +14,7 @@
 </head>
 
 <body class="sb-nav-fixed">
+
 <jsp:include page="../layout/header.jsp"/>
 
 <div id="layoutSidenav">
@@ -26,10 +27,19 @@
                     <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin">TRANG CHỦ</a></li>
                     <li class="breadcrumb-item active">TÀI KHOẢN</li>
                 </ol>
-
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-create">
+                <c:if test="${requestScope.role == 'admin'}">
+                <button disabled type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                        data-bs-target="#modal-create">
                     Tạo mới tài khoản
                 </button>
+                </c:if>
+                <c:if test="${requestScope.role == 'admin master'}">
+                <button onclick="window.location.href='/admin/account?action=create'" type="button"
+                        class="btn btn-secondary"
+                >
+                    Tạo mới tài khoản
+                </button>
+                </c:if>
                 <hr/>
 
                 <div class="card mb-4">
@@ -38,13 +48,14 @@
                         DỮ LIỆU TÀI KHOẢN
                     </div>
                     <div class="card-body">
+
                         <table id="datatablesSimple">
                             <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>EMAIL</th>
-                                <th>ROLE</th>
-                                <th>ACTION</th>
+                                <th>QUYỀN TRUY CẬP</th>
+                                <th>CHỨC NĂNG</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -53,58 +64,84 @@
                                     <td>${item.id}</td>
                                     <td>${item.email}</td>
                                     <td>${item.role}</td>
-                                        <%--                                    <c:if test="${role == 'admin'}">--%>
                                     <td>
-                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                                                data-bs-target="#modal-update">Sửa
-                                        </button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#staticBackdrop">Xóa
-                                        </button>
+                                        <c:choose> <c:when test="${requestScope.role == 'admin'}">
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                    data-bs-target="#modalUpdate${item.id}" disabled> Sửa
+                                            </button>
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                    data-bs-target="#modalDelete${item.id}" disabled>Xóa
+                                            </button>
+                                        </c:when> <c:when test="${requestScope.role == 'admin master'}">
+                                            <button onclick="window.location.href='/admin/account?action=update&email=${item.email}'"
+                                                    type="button" class="btn btn-warning"
+                                            >Sửa
+                                            </button>
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                    data-bs-target="#modalDelete${item.id}">Xóa
+                                            </button>
+                                        </c:when>
+                                        </c:choose>
                                     </td>
-                                        <%--                                    </c:if>--%>
-                                        <%--                                    <c:if test="${role == 'admin master'}">--%>
-                                        <%--                                        <td>--%>
-                                        <%--                                            <button type="button" class="btn btn-info" data-bs-toggle="modal"--%>
-                                        <%--                                                    data-bs-target="#modal-detail">Details--%>
-                                        <%--                                            </button>--%>
-                                        <%--                                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"--%>
-                                        <%--                                                    data-bs-target="#modal-update">Update--%>
-                                        <%--                                            </button>--%>
-                                        <%--                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"--%>
-                                        <%--                                                    data-bs-target="#staticBackdrop">Delete--%>
-                                        <%--                                            </button>--%>
-                                        <%--                                        </td>--%>
-                                        <%--                                    </c:if>--%>
+                                        <%-- Moldal delete--%>
+                                    <div class="modal fade" id="modalDelete${item.id}" data-bs-backdrop="static"
+                                         data-bs-keyboard="false" tabindex="-1"
+                                         aria-labelledby="staticBackdropLabel" aria-hidden="true"
+                                    >
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Xóa
+                                                        tài khoản</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Bạn có chắc muốn xóa tài khoản có email: ${item.email} này
+                                                        không?</p>
+                                                    <small style="color: red; font-style: italic">Lưu ý hành động
+                                                        này
+                                                        không thể hoàn
+                                                        tác!</small>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Đóng
+                                                    </button>
+                                                    <button onclick="window.location.href='/admin/account?action=delete&email=${item.email}'"
+                                                            type="button"
+                                                            class="btn btn-primary" data-bs-dismiss="modal">Xác nhận
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </tr>
+
                             </c:forEach>
                             </tbody>
                         </table>
                     </div>
+                    <c:if test="${message != null}">
+                        <div class="alert alert-success d-flex align-items-center" role="alert" id="message">
+                                ${message}
+                        </div>
+                    </c:if>
                 </div>
-                <!-- Modal create -->
-                <jsp:include page="../modal/modal_create_acc.jsp"/>
-                <!-- Modal update-->
-                <jsp:include page="../modal/modal_update_acc.jsp"/>
-                <!--Modal delete-->
-                <%--                <jsp:include page="../modal/toast.jsp"/>--%>
-
-            </div>
-            <jsp:include page="../modal/modal_delete_acc.jsp"/>
-
         </main>
         <jsp:include page="../layout/footer.jsp"/>
 
     </div>
 </div>
 <script>
-    document.getElementById('createButton').addEventListener('click', function () {
-        // Tạo thông báo toast
-        var toastElement = document.getElementById('successToast');
-        var toast = new bootstrap.Toast(toastElement);
-        toast.show();
-    });
+    setTimeout(function () {
+        document.getElementById("message").remove();
+    }, 3000)
 
+    function showAlert(${message}) {
+        alert(${message});
+    }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz4fnFO9gybF6kV5O6Nf1XbFjwRz2Kl68uGxAtGvX7SeCmbkNQvd53u1T2"
@@ -117,8 +154,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/datatables-simple-demo.js"></script>
+<script src="../../../resources/js/scripts.js"></script>
+<script src="../../../resources/js/datatables-simple-demo.js"></script>
 </body>
 
 </html>

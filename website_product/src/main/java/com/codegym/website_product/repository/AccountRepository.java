@@ -70,5 +70,16 @@ public class AccountRepository {
         return null;
     }
 
+    public static void updateAccount(Account account) {
+        try {
+            PreparedStatement statement = BaseRepository.getConnection().prepareStatement("UPDATE account SET password = ?, role = ? WHERE email = ?");
+            statement.setString(1, account.getPassword());
+            statement.setString(2, account.getRole());
+            statement.setString(3, account.getEmail());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
