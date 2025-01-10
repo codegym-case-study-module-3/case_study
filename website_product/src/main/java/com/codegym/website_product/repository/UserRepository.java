@@ -72,13 +72,13 @@ public class UserRepository {
     public void update(User user) {
         try {
             PreparedStatement statement = BaseRepository.getConnection().prepareStatement(
-                    "UPDATE users SET full_name = ?, date_of_birth = ?, gender = ?, phone_number = ?, address = ? WHERE account_id = ?");
+                    "UPDATE users SET full_name = ?, date_of_birth = ?, gender = ?, phone_number = ?, address = ? WHERE id = ?");
             statement.setString(1, user.getFullName());
             statement.setString(2, user.getDob());
             statement.setString(3, user.getGender());
             statement.setString(4, user.getPhone_number());
             statement.setString(5, user.getAddress());
-            statement.setInt(6, user.getAccount_id());
+            statement.setInt(6, user.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException("Error updating user info: " + e.getMessage(), e);

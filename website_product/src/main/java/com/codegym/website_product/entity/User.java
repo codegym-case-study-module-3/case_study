@@ -23,6 +23,15 @@ public class User {
         this.account_id = account_id;
     }
 
+    public User(int id, String fullName, String dob, String gender, String phone_number, String address) {
+        this.id = id;
+        this.fullName = fullName;
+        this.dob = dob;
+        this.gender = gender;
+        this.phone_number = phone_number;
+        this.address = address;
+    }
+
     public User(String fullName, String dob, String gender, String phone_number, String address , int account_id) {
         this.fullName = fullName;
         this.dob = dob;

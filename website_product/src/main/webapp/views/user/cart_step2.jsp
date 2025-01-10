@@ -78,34 +78,34 @@
             <form action="${pageContext.request.contextPath}/order/info" method="post">
                 <div class="mb-3">
                     <label for="fullName" class="form-label">Tên người nhận</label>
-                    <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Nhập tên của bạn" required>
+                    <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Nhập tên của bạn" value="${user != null && user.fullName != null ? user.fullName : ""}" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label d-block">Giới tính</label>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male" required>
-                        <label class="form-check-label" for="genderMale">Nam</label>
+                        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male" checked required>
+                        <label class="form-check-label" for="genderMale" >Nam</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female" required>
+                        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female" ${user != null && user.gender != null && user.gender == "f" ? "checked" : ""} required>
                         <label class="form-check-label" for="genderFemale">Nữ</label>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="dob" class="form-label">Ngày sinh</label>
-                    <input type="date" class="form-control" id="dob" name="dob" required>
+                    <input type="date" class="form-control" id="dob" name="dob" value="${user != null && user.dob != null ? user.dob : ""}" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="phone" class="form-label">Số điện thoại</label>
-                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+                    <input type="text" class="form-control" id="phone" name="phone" value="${user != null && user.phone_number != null ? user.phone_number : ""}" placeholder="Nhập số điện thoại" required>
                 </div>
 
                 <div class="mb-3">
                     <label for="address" class="form-label">Địa chỉ giao hàng</label>
-                    <textarea class="form-control" id="address" name="address" rows="3" placeholder="Nhập địa chỉ" required></textarea>
+                    <textarea class="form-control" id="address" name="address" rows="3" placeholder="Nhập địa chỉ" required>${user != null && user.address != null ? user.address : ""}</textarea>
                 </div>
 
                 <div class="mb-3">

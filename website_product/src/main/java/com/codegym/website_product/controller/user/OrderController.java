@@ -2,6 +2,7 @@ package com.codegym.website_product.controller.user;
 
 import com.codegym.website_product.entity.User;
 import com.codegym.website_product.service.impl.OrderService;
+import com.codegym.website_product.service.impl.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "orderController", urlPatterns = {"/order/info"})
 public class OrderController extends HttpServlet {
     private static final OrderService orderService = new OrderService();
+    private static final UserService userService = new UserService();
 
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,6 +26,8 @@ public class OrderController extends HttpServlet {
             String totalCostParam = req.getParameter("totalCost");
             double totalCost = totalCostParam != null ? Double.parseDouble(totalCostParam) : 0.0;
             req.setAttribute("totalCost", totalCost);
+            User user = userService.findById(userId);
+            req.setAttribute("user", user);
 
             req.getRequestDispatcher("/views/user/cart_step2.jsp").forward(req, resp);
         }
@@ -47,7 +51,7 @@ public class OrderController extends HttpServlet {
         double totalCost = Double.parseDouble(req.getParameter("totalCost"));
 
         // Tạo đối tượng User với các thông tin mới
-        User user = new User(fullName, dob, gender, phone, address, userId);
+        User user = new User(userId, fullName, dob, gender, phone, address);
 
         orderService.saveShippingInfo(user);
 
