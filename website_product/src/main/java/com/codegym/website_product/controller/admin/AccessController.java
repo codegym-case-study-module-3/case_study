@@ -43,6 +43,9 @@ public class AccessController extends HttpServlet {
             if (action.equals("product")) {
                 req.getRequestDispatcher("/views/admin/product/product.jsp").forward(req, resp);
             }
+            if (action.equals("orders")) {
+                req.getRequestDispatcher("/views/admin/product/product.jsp").forward(req, resp);
+            }
 
         } else {
             req.getRequestDispatcher("/views/admin/login/login.jsp").forward(req, resp);

@@ -3,6 +3,7 @@ package com.codegym.website_product.controller.admin;
 import com.codegym.website_product.entity.Order;
 import com.codegym.website_product.service.OrderService;
 import com.codegym.website_product.service.impl.OrderServiceImpl;
+import com.codegym.website_product.utils.SessionManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,18 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "OrderController", urlPatterns = {"/admin/order"})
-public class OrderController  extends HttpServlet {
-        private OrderService orderService = new OrderServiceImpl();
+@WebServlet(name = "OrderController", urlPatterns = {"/admin/orders"})
+public class OrderController extends HttpServlet {
+    private OrderService orderService = new OrderServiceImpl();
 
-        @Override
-        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            String action = request.getParameter("action");
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        String role = SessionManager.getRole(request);
+        boolean isLogin = SessionManager.isUserLoggedIn(request);
+        if (isLogin) {
             if (action == null || action.equals("list")) {
                 // Hiển thị danh sách đơn hàng
                 List<Order> orders = orderService.findAll();
+                request.setAttribute("role", role);
                 request.setAttribute("orders", orders);
-                request.getRequestDispatcher("/views/admin/orders/list.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/admin/orders/orders.jsp").forward(request, response);
             } else if (action.equals("edit")) {
                 // Hiển thị trang cập nhật trạng thái
                 int id = Integer.parseInt(request.getParameter("id"));
@@ -31,19 +36,23 @@ public class OrderController  extends HttpServlet {
                 request.setAttribute("order", order);
                 request.getRequestDispatcher("/views/admin/orders/edit.jsp").forward(request, response);
             }
+        } else {
+            request.getRequestDispatcher("/views/admin/login/login.jsp").forward(request, response);
         }
 
-        @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            String action = request.getParameter("action");
-            if (action.equals("update")) {
-                // Cập nhật trạng thái đơn hàng
-                int id = Integer.parseInt(request.getParameter("id"));
-                int status = Integer.parseInt(request.getParameter("status"));
-                orderService.updateStatus(id, status);
-                response.sendRedirect("/admin/orders");
-            }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action.equals("update")) {
+            // Cập nhật trạng thái đơn hàng
+            int id = Integer.parseInt(request.getParameter("id"));
+            int status = Integer.parseInt(request.getParameter("status"));
+            orderService.updateStatus(id, status);
+            response.sendRedirect("/admin/orders");
         }
     }
+}
 
 
