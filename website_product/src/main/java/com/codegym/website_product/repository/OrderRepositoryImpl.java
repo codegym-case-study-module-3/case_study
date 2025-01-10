@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderRepositoryImpl extends OrderRepository {
-    @Override
+
     public List<Order> findAll() {
         List<Order> orders = new ArrayList<>();
         String sql = "SELECT * FROM orders";
@@ -31,7 +31,7 @@ public class OrderRepositoryImpl extends OrderRepository {
         return orders;
     }
 
-    @Override
+
     public Order findById(long id) {
         String sql = "SELECT * FROM orders WHERE id = ?";
         try (PreparedStatement statement = BaseRepository.getConnection().prepareStatement(sql)) {
@@ -52,7 +52,7 @@ public class OrderRepositoryImpl extends OrderRepository {
         return null;
     }
 
-    @Override
+
     public void updateStatus(int id, int status) {
         String sql = "UPDATE orders SET status = ? WHERE id = ?";
         try (PreparedStatement statement = BaseRepository.getConnection().prepareStatement(sql)) {

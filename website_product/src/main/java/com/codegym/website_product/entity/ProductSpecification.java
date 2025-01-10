@@ -19,6 +19,11 @@ public class ProductSpecification {
         this.textInfo = textInfo;
     }
 
+    public ProductSpecification(String nameInfo, String textInfo) {
+        this.nameInfo = nameInfo;
+        this.textInfo = textInfo;
+    }
+
     public int getId() {
         return id;
     }

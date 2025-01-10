@@ -9,18 +9,20 @@ import java.util.List;
 
 public class OrderServiceImpl implements OrderService {
     private OrderRepository orderRepository = new OrderRepositoryImpl();
+    private OrderRepositoryImpl orderRepositoryImpl  = new OrderRepositoryImpl();
+
     @Override
     public List<Order> findAll() {
-        return orderRepository.findAll();
+        return orderRepositoryImpl.findAll();
     }
 
     @Override
     public Order findById(int id) {
-        return orderRepository.findById(id);
+        return orderRepositoryImpl.findById(id);
     }
 
     @Override
     public void updateStatus(int id, int status) {
-        orderRepository.updateStatus(id, status);
+        orderRepositoryImpl.updateStatus(id, status);
     }
 }
