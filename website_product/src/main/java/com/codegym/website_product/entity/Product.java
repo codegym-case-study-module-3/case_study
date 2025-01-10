@@ -9,6 +9,19 @@ public class Product {
     private String image;
     private int categoryId;
     private String created_at;
+    private String categoryName;
+
+    public Product(int id, String name, String description, double price, int quantity, String image, int categoryId, String createdAt, String categoryName) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+        this.image = image;
+        this.categoryId = categoryId;
+        this.created_at = createdAt;
+        this.categoryName = categoryName;
+    }
 //    Product(id,name_u,description_u,price_u,quantity_u,image_u,categoryId_u)
     public Product( long id,String name_u, String description_u, double price_u, int quantity_u, String image_u, int categoryId_u) {
         this.id = id;
@@ -125,5 +138,12 @@ public class Product {
 
     public void setCreated_at(String created_at) {
         this.created_at = created_at;
+    }
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }

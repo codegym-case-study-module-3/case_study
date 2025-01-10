@@ -131,7 +131,6 @@
                     <li class="breadcrumb-item active">PRODUCT</li>
                 </ol>
 
-
                 <html>
                 <head>
                     <title></title>
@@ -163,15 +162,65 @@
                             <label for="stock" class="form-label">Số lượng</label>
                             <input type="number" class="form-control" id="stock" name="stock" value="${product.quantity}" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="image" class="form-label">Ảnh</label>
-                            <input type="text" class="form-control" id="image" name="image" value="${product.image}">
-                        </div>
+                            <!-- Hình ảnh -->
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Hình ảnh</label>
+                                <input type="file" class="form-control" id="image" name="image" accept="image/*">
+
+                                <!-- Khu vực hiển thị ảnh hiện tại và ảnh mới -->
+                                <div class="mt-2">
+                                    <img id="previewImage" src="/resources/images/${product.image}" alt="Image Preview" style="max-width: 100px;">
+                                </div>
+                            </div>
+
+                            <script>
+                                document.getElementById('image').addEventListener('change', function(event) {
+                                    const file = event.target.files[0];
+                                    if (file) {
+                                        const reader = new FileReader();
+                                        reader.onload = function(e) {
+                                            document.getElementById('previewImage').src = "/resources/images/" + file.name;
+                                        }
+                                        reader.readAsDataURL(file);
+                                    }
+                                });
+                            </script>
                         <div class="mb-3">
                             <label for="category_id" class="form-label">Mã danh mục</label>
                             <input type="number" class="form-control" id="category_id" name="category_id" value="${product.categoryId}" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                            <!-- Thông số kỹ thuật -->
+                            <%-- Hiển thị danh sách thông số kỹ thuật hiện tại --%>
+                            <div class="mb-3">
+                                <div class="row mb-3">
+                                    <label class="col-sm-2 col-6 form-label">Thông số kỹ thuật</label>
+
+                                    <div class="col-sm-4 col-6">
+                                        <button id="btn-add-info" type="button" class="btn btn-primary">Thêm thông tin</button>
+                                    </div>
+                                </div>
+
+                                <div class="div-info">
+                                    <%-- Hiển thị danh sách thông số kỹ thuật hiện tại --%>
+                                    <c:forEach var="spec" items="${products.specifications1}">
+                                        <div class="col-12" id="info_${spec.id}">
+                                            <div class="row align-items-center mb-sm-2 mb-4">
+                                                <div class="col-sm-5 col-12 mb-2 mb-sm-0">
+                                                    <input type="text" class="form-control" name="name_info[]" value="${spec.nameInfo}" />
+                                                </div>
+                                                <div class="col-sm-6 col-12">
+                                                    <textarea class="form-control" name="text_info[]">${spec.textInfo}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+
+                                <input type="hidden" name="num_info" id="num_info" value="${products.specifications1.size}">
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
                         <a href="/admin/product" class="btn btn-secondary">Hủy</a>
                     </form>
                 </div>
@@ -214,42 +263,96 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    (function () {
-        // Thêm thông tin chi tiết
-        $(document).on("click", "#btn-add-info", function () {
-            var num = $(".info").length + 1;
-            $(".div-info").append(
-                `<div class="info" id="info-${num}">
-                        <input type="textarea" class="form-control" name="name_info[]"  />
-                        <input type="textarea" class="form-control" name="text_info[]"  />
-                        <button type="button" class="btn btn-danger btn-sm btn-delete-info" data-num="${num}">Xóa</button>
-                    </div>`
-            );
-        });
+    // Khi người dùng chọn file ảnh, hiển thị ảnh preview
+    document.getElementById('image').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const preview = document.getElementById('previewImage');
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
 
-        // Xóa thông tin chi tiết
-        $(document).on("click", ".btn-delete-info", function () {
-            var num = $(this).attr("data-num");
-            $(`#info-${num}`).remove();
-        });
+    // Thêm thông số kỹ thuật
+    let infoCount = 1;
+    document.getElementById('btn-add-info').addEventListener('click', function () {
+        infoCount++;
+        const divInfo = document.querySelector('.div-info');
 
-        // Sửa thông tin chi tiết
-        $(document).on("click", ".btn-edit-info", function () {
-            var num = $(this).attr("data-num");
-            var row = $(`#info-${num}`);
-            var inputs = row.find("input");
+        // Tạo cấu trúc HTML cho một trường thông tin mới
+        const newInfo = `
+            <div class="col-12" id="info_${infoCount}">
+                <div class="row align-items-center mb-sm-2 mb-4">
+                    <div class="col-sm-5 col-12 mb-2 mb-sm-0">
+                        <input type="text" class="form-control" name="name_info[]" placeholder="Tên thông số" />
+                    </div>
+                    <div class="col-sm-6 col-12">
+                        <textarea class="form-control" name="text_info[]" placeholder="Chi tiết thông số"></textarea>
+                    </div>
+                    <div class="col-sm-1">
+                        <button type="button" class="btn btn-danger btn-sm btn-delete-info" data-num="${infoCount}">Xóa</button>
+                    </div>
+                </div>
+            </div>
+        `;
 
-            // Kiểm tra trạng thái chỉnh sửa
-            if ($(this).text() === "Sửa") {
-                inputs.prop("disabled", false); // Bật chế độ chỉnh sửa
-                $(this).removeClass("btn-warning").addClass("btn-success").text("Lưu");
-            } else {
-                inputs.prop("disabled", true); // Tắt chế độ chỉnh sửa
-                $(this).removeClass("btn-success").addClass("btn-warning").text("Sửa");
-            }
-        });
-    })();
+        // Thêm trường thông tin mới vào div
+        divInfo.insertAdjacentHTML('beforeend', newInfo);
+
+        // Cập nhật số lượng thông tin
+        document.getElementById('num_info').value = infoCount;
+    });
+
+    // Lắng nghe sự kiện xóa trường thông tin
+    document.querySelector('.div-info').addEventListener('click', function (e) {
+        if (e.target.classList.contains('btn-delete-info')) {
+            const infoId = e.target.getAttribute('data-num');
+            const infoDiv = document.getElementById(`info_${infoId}`);
+            infoDiv.remove();
+        }
+    });
 </script>
+<%--<script>--%>
+<%--    (function () {--%>
+<%--        // Thêm thông tin chi tiết--%>
+<%--        $(document).on("click", "#btn-add-info", function () {--%>
+<%--            var num = $(".info").length + 1;--%>
+<%--            $(".div-info").append(--%>
+<%--                `<div class="info" id="info-${num}">--%>
+<%--                        <input type="textarea" class="form-control" name="name_info[]"  />--%>
+<%--                        <input type="textarea" class="form-control" name="text_info[]"  />--%>
+<%--                        <button type="button" class="btn btn-danger btn-sm btn-delete-info" data-num="${num}">Xóa</button>--%>
+<%--                    </div>`--%>
+<%--            );--%>
+<%--        });--%>
+
+<%--        // Xóa thông tin chi tiết--%>
+<%--        $(document).on("click", ".btn-delete-info", function () {--%>
+<%--            var num = $(this).attr("data-num");--%>
+<%--            $(`#info-${num}`).remove();--%>
+<%--        });--%>
+
+<%--        // Sửa thông tin chi tiết--%>
+<%--        $(document).on("click", ".btn-edit-info", function () {--%>
+<%--            var num = $(this).attr("data-num");--%>
+<%--            var row = $(`#info-${num}`);--%>
+<%--            var inputs = row.find("input");--%>
+
+<%--            // Kiểm tra trạng thái chỉnh sửa--%>
+<%--            if ($(this).text() === "Sửa") {--%>
+<%--                inputs.prop("disabled", false); // Bật chế độ chỉnh sửa--%>
+<%--                $(this).removeClass("btn-warning").addClass("btn-success").text("Lưu");--%>
+<%--            } else {--%>
+<%--                inputs.prop("disabled", true); // Tắt chế độ chỉnh sửa--%>
+<%--                $(this).removeClass("btn-success").addClass("btn-warning").text("Sửa");--%>
+<%--            }--%>
+<%--        });--%>
+<%--    })();--%>
+<%--</script>--%>
 <script>
     document.getElementById("image").addEventListener("change", function (event) {
         const file = event.target.files[0]; // Lấy file người dùng chọn

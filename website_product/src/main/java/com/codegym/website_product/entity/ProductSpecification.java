@@ -7,6 +7,8 @@ public class ProductSpecification {
     private int productId;
     private String name;
     private String description;
+    private String nameInfo;
+    private String textInfo;
 
     public ProductSpecification() {
     }
@@ -54,6 +56,28 @@ public class ProductSpecification {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+
+    public ProductSpecification(String nameInfo, String textInfo) {
+        this.nameInfo = nameInfo;
+        this.textInfo = textInfo;
+    }
+
+    public String getNameInfo() {
+        return nameInfo;
+    }
+
+    public void setNameInfo(String nameInfo) {
+        this.nameInfo = nameInfo;
+    }
+
+    public String getTextInfo() {
+        return textInfo;
+    }
+
+    public void setTextInfo(String textInfo) {
+        this.textInfo = textInfo;
     }
 
     @Override

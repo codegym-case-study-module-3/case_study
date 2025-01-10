@@ -105,13 +105,13 @@ public class AccountController extends HttpServlet {
                 }
             }
         }
-        if (action != null && isLogin) {
-            if (action.equals("account/create") && role.equals("admin master")) {
-                String email = req.getParameter("email");
+//        if (action != null && isLogin) {
+//            if (action.equals("account/create") && role.equals("admin master")) {
+//                String email = req.getParameter("email");
+//
+//            }
 
-            }
-
-        }
+//        }
 //            case "register":
 //                String emailRegister = req.getParameter("email");
 //                String passwordRegister = req.getParameter("password");
