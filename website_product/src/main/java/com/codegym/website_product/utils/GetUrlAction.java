@@ -1,5 +1,7 @@
 package com.codegym.website_product.utils;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 
 public class GetUrlAction {
@@ -24,4 +26,5 @@ public class GetUrlAction {
 
         return id;
     }
+    
 }

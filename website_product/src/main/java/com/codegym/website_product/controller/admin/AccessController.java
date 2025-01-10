@@ -1,8 +1,5 @@
 package com.codegym.website_product.controller.admin;
 
-
-import com.codegym.website_product.entity.Account;
-import com.codegym.website_product.entity.User;
 import com.codegym.website_product.service.impl.AccountService;
 import com.codegym.website_product.service.impl.UserService;
 import com.codegym.website_product.utils.GetUrlAction;
@@ -14,11 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @WebServlet(name = "admin", urlPatterns = "/admin/*")
-public class AccountController extends HttpServlet {
+public class AccessController extends HttpServlet {
     private static AccountService accountService = new AccountService();
     private static SessionManager sessionManager = new SessionManager();
     private static UserService userService = new UserService();
@@ -29,7 +24,6 @@ public class AccountController extends HttpServlet {
         String uri = req.getRequestURI();
         String contextPath = req.getContextPath();
         String action = GetUrlAction.getUrl(uri, contextPath);
-
         boolean isLogin = SessionManager.isUserLoggedIn(req);
         String role = SessionManager.getRole(req);
 
@@ -55,5 +49,4 @@ public class AccountController extends HttpServlet {
         }
 
     }
-
 }

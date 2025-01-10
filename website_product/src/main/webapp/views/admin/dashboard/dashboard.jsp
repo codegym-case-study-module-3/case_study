@@ -109,7 +109,7 @@
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-back stretched-link"
-                                   href="${pageContext.request.contextPath}/admin/register">Chi tiết</a>
+                                   href="${pageContext.request.contextPath}/admin/account">Chi tiết</a>
                                 <div class="small text-back"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -118,7 +118,6 @@
             </div>
         </main>
         <jsp:include page="../layout/footer.jsp"/>
-        <jsp:include page="../modal/toast.jsp"/>
 
 
     </div>
@@ -130,8 +129,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
             crossorigin="anonymous"></script>
-    <script src="D:\java\case_study_frontend\resources\js\scripts.js"></script>
-    <script src="D:\java\case_study_frontend\resources\js\datatables-simple-demo.js"></script>
+    <script src="../../../resources/js/scripts.js"></script>
+    <script src="../../../resources/js/datatables-simple-demo.js"></script>
 </body>
 
 </html>
