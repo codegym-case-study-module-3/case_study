@@ -97,12 +97,10 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Tên</th>
-<%--                                <th>description</th>--%>
-                                <th>price</th>
-                                <th>stock</th>
-                                <th>image</th>
-                                <th>category_id</th>
-                                <%--                                        <th>created_at</th>--%>
+                                <th>Giá</th>
+                                <th>Tồn kho</th>
+                                <th>Hình ảnh</th>
+                                <th>Danh mục sản phẩm</th>
                                 <th colspan="2">Chức năng</th>
                             </tr>
                             </thead>
@@ -111,8 +109,6 @@
                                 <tr>
                                     <td>${temp.count}</td>
                                     <td>${product.name}</td>
-<%--                                    <td>${product.description}</td>--%>
-<%--                                    <td>${product.price}</td>--%>
                                     <td>
                                         <fmt:formatNumber value="${product.price}" pattern="0.0##############" />VNĐ
                                     </td>

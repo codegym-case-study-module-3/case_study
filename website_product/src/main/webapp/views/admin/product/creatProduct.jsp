@@ -128,9 +128,22 @@
                         <label for="stock" class="form-label">Số lượng</label>
                         <input type="number" class="form-control" id="stock" name="stock" required>
                     </div>
+<%--                    <div class="mb-3">--%>
+<%--                        <label for="category_id" class="form-label">Danh mục sản phẩm</label>--%>
+<%--                        <input type="number" class="form-control" id="category_id" name="category_id" required>--%>
+<%--                    </div>--%>
                     <div class="mb-3">
-                        <label for="category_id" class="form-label">Giá sản phẩm</label>
-                        <input type="number" class="form-control" id="category_id" name="category_id" required>
+                        <label for="category_id" class="form-label">Danh mục sản phẩm</label>
+                        <select class="form-select" id="category_id" name="category_id">
+                            <option value="" selected disabled>Chọn một danh mục</option>
+                            <option value="1">Laptop</option>
+                            <option value="2">PC</option>
+                            <option value="3">Bàn phím</option>
+                            <option value="4">Tai nghe</option>
+                            <option value="5">Chuột</option>
+                            <option value="6">Màn hình</option>
+                        </select>
+
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Hình ảnh</label>

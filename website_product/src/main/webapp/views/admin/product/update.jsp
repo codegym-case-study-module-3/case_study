@@ -185,10 +185,22 @@
                                     }
                                 });
                             </script>
-                        <div class="mb-3">
-                            <label for="category_id" class="form-label">Mã danh mục</label>
-                            <input type="number" class="form-control" id="category_id" name="category_id" value="${product.categoryId}" required>
-                        </div>
+<%--                        <div class="mb-3">--%>
+<%--                            <label for="category_id" class="form-label">Mã danh mục</label>--%>
+<%--                            <input type="number" class="form-control" id="category_id" name="category_id" value="${product.categoryId}" required>--%>
+<%--                        </div>--%>
+                            <div class="mb-3">
+                                <label for="category_id" class="form-label">Danh mục sản phẩm</label>
+                                <select class="form-select" id="category_id" name="category_id">
+                                    <option value="" disabled selected>Chọn danh mục</option>
+                                    <option value="1" ${product.categoryId == 1 ? 'selected' : ''}>Laptop</option>
+                                    <option value="2" ${product.categoryId == 2 ? 'selected' : ''}>PC</option>
+                                    <option value="3" ${product.categoryId == 3 ? 'selected' : ''}>Bàn phím</option>
+                                    <option value="4" ${product.categoryId == 4 ? 'selected' : ''}>Tai nghe</option>
+                                    <option value="5" ${product.categoryId == 5 ? 'selected' : ''}>Chuột</option>
+                                    <option value="6" ${product.categoryId == 6 ? 'selected' : ''}>Màn hình</option>
+                                </select>
+                            </div>
                             <!-- Thông số kỹ thuật -->
                             <%-- Hiển thị danh sách thông số kỹ thuật hiện tại --%>
                             <div class="mb-3">
