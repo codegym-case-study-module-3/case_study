@@ -1,5 +1,6 @@
 package com.codegym.website_product.service.impl;
 
+import com.codegym.website_product.entity.Account;
 import com.codegym.website_product.entity.Product;
 import com.codegym.website_product.entity.ProductSpecification;
 import com.codegym.website_product.repository.ProductRepository;
@@ -24,15 +25,25 @@ public class ProductService implements IProduct {
         }
     }
     @Override
-    public List<Product> getAll(){
+    public List<Product> getAll() {
         List<Product> products = productRepository.getAll();
         return products;
     }
+
     @Override
-    public void save(Product p){
-//        productRepository.save(p);
+   public Account save(Product p) {
+//       productRepository.save(p);
+//    public Account save(Product p) {
+//       productRepository.save(p);
+//      return null;
+        return null;
     }
 
+
+
+//    @Override
+//    public void update(int id, Product p) {
+//    }
 
     @Override
     public void remove(int id) {
@@ -40,11 +51,12 @@ public class ProductService implements IProduct {
     }
 
     @Override
-    public void update(long id, Product p){
-        productRepository.update(Math.toIntExact(id),p);
+    public void update(long id, Product p) {
+        productRepository.update(Math.toIntExact(id), p);
     }
+
     @Override
-    public void remove(long id){
+    public void remove(long id) {
 
         productRepository.deleteById((int) id);
     }
@@ -60,9 +72,10 @@ public class ProductService implements IProduct {
     }
 
     @Override
-    public Product findById(int id){
+    public Product findById(int id) {
         return productRepository.findById(id);
     }
+
     @Override
     public List<Product> findByName(String name) {
         return productRepository.findByName(name);

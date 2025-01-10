@@ -8,14 +8,16 @@ import java.util.List;
 
 public class AccountService implements IAccount {
     private final AccountRepository accountRepository = new AccountRepository();
+
     @Override
     public List<Account> getAll() {
         return accountRepository.getAll();
     }
 
     @Override
-    public void save(Account account) {
+    public Account save(Account account) {
         accountRepository.save(account);
+        return account;
     }
 
     @Override

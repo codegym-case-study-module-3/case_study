@@ -85,7 +85,7 @@ public class AccountController extends HttpServlet {
         String contextPath = req.getContextPath();
         String action = GetUrlAction.getUrl(uri, contextPath);
         boolean isLogin = SessionManager.isUserLoggedIn(req);
-        String rolAS = sessionManager.getRole(req);
+        String roleSS = sessionManager.getRole(req);
         if (action != null) {
             if (action.equals("login")) {
                 String email = req.getParameter("email");
@@ -105,25 +105,22 @@ public class AccountController extends HttpServlet {
                 }
             }
         }
-//        if (action != null && isLogin) {
-//            if (action.equals("account/create") && role.equals("admin master")) {
-//                String email = req.getParameter("email");
-//
-//            }
+        if (action != null && isLogin) {
+            if (action.equals("account") && roleSS.equals("admin master")) {
+                String email = req.getParameter("email");
+                String password = req.getParameter("password");
+                String role = req.getParameter("role");
+                Account account = accountService.findAccByEmailAndPassword(email, password);
+                if (account != null) {
+//                    resp.sendRedirect("/admin/login");
+                    // Tạo thông báo
+                } else {
+                    accountService.save(new Account(email, password, role));
+//                    req.setAttribute("success", "success");
+                    resp.sendRedirect("/admin/account");
+                }
+            }
 
-//        }
-//            case "register":
-//                String emailRegister = req.getParameter("email");
-//                String passwordRegister = req.getParameter("password");
-//                long defaultID = Long.parseLong(req.getParameter("user"));
-//                String roleRegister = req.getParameter("role");
-//                Account accountExisting = accountService.findAccByEmailAndPassword(emailRegister, passwordRegister);
-//                if (accountExisting != null) {
-//                    resp.sendRedirect("/admin?action=error");
-//                } else {
-//                    accountService.save(new Account(defaultID, emailRegister, passwordRegister, roleRegister));
-//                    resp.sendRedirect("/admin");
-//                }
-//        }
+        }
     }
 }

@@ -87,15 +87,25 @@
                 <!-- Modal update-->
                 <jsp:include page="../modal/modal_update_acc.jsp"/>
                 <!--Modal delete-->
+                <%--                <jsp:include page="../modal/toast.jsp"/>--%>
+
             </div>
             <jsp:include page="../modal/modal_delete_acc.jsp"/>
-
 
         </main>
         <jsp:include page="../layout/footer.jsp"/>
 
     </div>
 </div>
+<script>
+    document.getElementById('createButton').addEventListener('click', function () {
+        // Tạo thông báo toast
+        var toastElement = document.getElementById('successToast');
+        var toast = new bootstrap.Toast(toastElement);
+        toast.show();
+    });
+
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz4fnFO9gybF6kV5O6Nf1XbFjwRz2Kl68uGxAtGvX7SeCmbkNQvd53u1T2"
         crossorigin="anonymous"></script>
@@ -107,9 +117,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-<script src="../../../resources/js/scripts.js"></script>
-<script src="../../../resources/js/datatables-simple-demo.js"></script>
-
+<script src="${pageContext.request.contextPath}/resources/js/scripts.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/datatables-simple-demo.js"></script>
 </body>
 
 </html>

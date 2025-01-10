@@ -33,7 +33,7 @@
                         <div class="card text-bg-light text-back mb-4">
                             <div class="card-body">
                                 <i class="fa-solid fa-user"></i>
-                                QUẢN LÝ ACCOUNT
+                                QUẢN LÝ TÀI KHOẢN
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-back stretched-link"
@@ -46,7 +46,7 @@
                         <div class="card text-bg-light text-back mb-4">
                             <div class="card-body">
                                 <i class="fa-solid fa-users"></i>
-                                QUẢN LÝ USERS
+                                QUẢN LÝ NGƯỜI DÙNG
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-back stretched-link"
@@ -59,7 +59,7 @@
                         <div class="card text-bg-light text-back mb-4">
                             <div class="card-body">
                                 <i class="fa-solid fa-list"></i>
-                                QUẢN LÝ PRODUCT
+                                QUẢN LÝ SẢN PHẨM
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
                                 <a class="small text-back stretched-link"
@@ -85,7 +85,7 @@
                         <div class="card text-bg-light text-back mb-4">
                             <div class="card-body">
                                 <i class="fa-solid fa-gears"></i>
-                                MY ACCOUNT <small style="color: red; font-style: italic">
+                                TÀI KHOẢN CỦA BẠN <small style="color: red; font-style: italic">
                                 (<c:out value="${requestScope.role}"/>)
                             </small>
                             </div>
@@ -118,6 +118,8 @@
             </div>
         </main>
         <jsp:include page="../layout/footer.jsp"/>
+        <jsp:include page="../modal/toast.jsp"/>
+
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

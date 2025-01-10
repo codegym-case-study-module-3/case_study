@@ -15,7 +15,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" action="${pageContext.request.contextPath}/admin/account/create">
+                <form method="post">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" required>
@@ -38,12 +38,24 @@
 
                         </select>
                     </div>
+
+                    <button style="width: 100%" type="submit" class="btn btn-primary"
+                            data-bs-dismiss="modal"
+                    >Tạo mới
+                    </button>
+                    <!-- Toast Container -->
+                    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                        <div id="successToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header"><strong class="me-auto">Thông báo</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body"> Tạo mới thành công!</div>
+                        </div>
+                    </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                <button type="button" class="btn btn-primary">Tạo mới</button>
-            </div>
+
         </div>
     </div>
 </div>
