@@ -169,7 +169,7 @@
 
                                 <!-- Khu vực hiển thị ảnh hiện tại và ảnh mới -->
                                 <div class="mt-2">
-                                    <img id="previewImage" src="/resources/images/${product.image}" alt="Image Preview" style="max-width: 100px;">
+                                    <img id="previewImage" src="/${product.image}" alt="Image Preview" style="max-width: 100px;">
                                 </div>
                             </div>
 
