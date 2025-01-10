@@ -19,15 +19,10 @@ public class ManageUsersController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         boolean isLogin = SessionManager.isUserLoggedIn(req);
-        String role = SessionManager.getRole(req);
         if (isLogin) {
             List<User> listUsers = userService.getAll();
-            req.setAttribute("role", role);
             req.setAttribute("listUsers", listUsers);
             req.getRequestDispatcher("/views/admin/user/show.jsp").forward(req, resp);
-        } else {
-            req.getRequestDispatcher("/views/admin/login/login.jsp").forward(req, resp);
         }
-
     }
 }

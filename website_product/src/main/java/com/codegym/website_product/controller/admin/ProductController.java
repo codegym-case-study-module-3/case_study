@@ -6,7 +6,6 @@ import com.codegym.website_product.entity.ProductSpecification;
 import com.codegym.website_product.repository.ProductRepository;
 import com.codegym.website_product.service.IProduct;
 import com.codegym.website_product.service.impl.ProductService;
-import com.codegym.website_product.utils.SessionManager;
 
 
 import javax.servlet.ServletException;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "productController", urlPatterns = "/admin/product")
-public class ProductController extends HttpServlet {
+public class ProductController extends HttpServlet  {
     private IProduct productService = new ProductService();
 
     @Override
@@ -30,8 +29,6 @@ public class ProductController extends HttpServlet {
         if (action == null) {
             action = "";
         }
-        String role = SessionManager.getRole(req);
-
         switch (action) {
             case "create":
                 req.getRequestDispatcher("/views/admin/product/creatProduct.jsp").forward(req, resp);
@@ -59,28 +56,20 @@ public class ProductController extends HttpServlet {
                 resp.sendRedirect("/admin/product?message=deleted");
                 break;
             default:
-                boolean isLogin = SessionManager.isUserLoggedIn(req);
-                if (isLogin) {
-                    String message = req.getParameter("message");
-                    if (message != null) {
-                        if (message.equals("deleted")) {
-                            req.setAttribute("message", "Xóa thành công");
-                        } else if (message.equals("created")) {
-                            req.setAttribute("message", "Thêm mới thành công");
-                        }
+                String message = req.getParameter("message");
+                if (message != null) {
+                    if (message.equals("deleted")) {
+                        req.setAttribute("message", "Xóa thành công");
+                    } else if (message.equals("created")) {
+                        req.setAttribute("message", "Thêm mới thành công");
                     }
-
-                    List<Product> products = productService.getAll();
-                    req.setAttribute("role", role);
-                    req.setAttribute("products", products);
+                }
+                List<Product> products = productService.getAll();
+                req.setAttribute("products", products);
 //                    req.getRequestDispatcher("views/product/admin.jsp").forward(req, resp);
-                    req.getRequestDispatcher("/views/admin/product/admin.jsp").forward(req, resp);
+                req.getRequestDispatcher("/views/admin/product/admin.jsp").forward(req, resp);
 //                req.setAttribute("contentPage","views/product/layout/list.jsp");
 //                req.getRequestDispatcher("views/product/admin.jsp").forward(req, resp);
-                } else {
-                    req.getRequestDispatcher("/views/admin/login/login.jsp").forward(req, resp);
-                }
-
         }
     }
 
@@ -161,8 +150,6 @@ public class ProductController extends HttpServlet {
                     int categoryId_u = Integer.parseInt(req.getParameter("category_id"));
                     // Tạo đối tượng Product từ dữ liệu đã nhập
                     Product productUpdate = new Product(id, name_u, description_u, price_u, quantity_u, image_u, categoryId_u);
-
-                    productService.update(id, productUpdate);
                     // Lấy thông tin thông số kỹ thuật từ form
                     String[] nameInfoArray = req.getParameterValues("name_info[]");
                     String[] textInfoArray = req.getParameterValues("text_info[]");
