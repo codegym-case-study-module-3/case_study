@@ -37,6 +37,48 @@ public class ProductRepository {
         }
         return null;
     }
+    public List<Product> findSimilarProductsByCategoryId(int categoryId, int productId) {
+        List<Product> similarProducts = new ArrayList<>();
+        String query = "SELECT * FROM products WHERE category_id = ? AND id != ? LIMIT 4";
+        try (Connection connection = BaseRepository.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, categoryId);
+            statement.setInt(2, productId);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Product product = new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("description"),
+                        rs.getDouble("price"),
+                        rs.getInt("stock"),
+                        rs.getString("image"),
+                        rs.getInt("category_id"),
+                        rs.getString("created_at")
+                );
+                similarProducts.add(product);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return similarProducts;
+    }
+    public static double getPriceById(int productId) {
+        double price = 0;
+        String query = "SELECT price FROM product WHERE id = ?";
+        try (Connection connection = BaseRepository.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, productId);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                price = rs.getDouble("price");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return price;
+    }
+
 
     public List<Product> findByName(String name) {
         List<Product> products = new ArrayList<>();

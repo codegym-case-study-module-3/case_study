@@ -1,3 +1,4 @@
+//Đây là file CartItem.java
 package com.codegym.website_product.entity;
 
 import java.util.Objects;
@@ -7,6 +8,7 @@ public class CartItem {
     private int cartId;
     private int productId;
     private int quantity;
+
 
     public CartItem() {}
 

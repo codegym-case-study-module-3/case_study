@@ -1,3 +1,4 @@
+//Đây là User.java
 package com.codegym.website_product.entity;
 
 import java.util.Objects;

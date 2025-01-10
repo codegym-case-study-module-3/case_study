@@ -10,20 +10,13 @@ public class ProductSpecification {
     private String nameInfo;
     private String textInfo;
 
-    public ProductSpecification() {
-    }
+    public ProductSpecification() {}
 
-    public ProductSpecification(int id, int productId, String name, String description) {
+    public ProductSpecification(int id, int productId, String nameInfo, String textInfo) {
         this.id = id;
         this.productId = productId;
-        this.name = name;
-        this.description = description;
-    }
-
-    public ProductSpecification(int productId, String name, String description) {
-        this.productId = productId;
-        this.name = name;
-        this.description = description;
+        this.nameInfo = nameInfo;
+        this.textInfo = textInfo;
     }
 
     public int getId() {
@@ -57,13 +50,6 @@ public class ProductSpecification {
     public void setDescription(String description) {
         this.description = description;
     }
-
-
-    public ProductSpecification(String nameInfo, String textInfo) {
-        this.nameInfo = nameInfo;
-        this.textInfo = textInfo;
-    }
-
     public String getNameInfo() {
         return nameInfo;
     }
@@ -75,7 +61,6 @@ public class ProductSpecification {
     public String getTextInfo() {
         return textInfo;
     }
-
     public void setTextInfo(String textInfo) {
         this.textInfo = textInfo;
     }
